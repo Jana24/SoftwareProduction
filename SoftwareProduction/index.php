@@ -13,6 +13,7 @@ and open the template in the editor.
         <?php
         // put your code here
         //hello
+        //Daniel
         //Adding another comment for the how to!
         ?>
     </body>
