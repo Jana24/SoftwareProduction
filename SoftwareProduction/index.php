@@ -14,6 +14,7 @@ and open the template in the editor.
         // put your code here
         //hello
         //Daniel
+        //Daniel Test2
         //Adding another comment for the how to!
         ?>
     </body>
