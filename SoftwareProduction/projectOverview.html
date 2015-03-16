@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Project Overview</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+  
+  <style type="text/css">
+   body {
+   font-family: arial, "Comic Sans MS", calibri, sans-serif;
+   }
+   
+   #main {
+   border: solid 1px black;
+   border-height:600px;
+   width:1200px;
+   height:800px;
+   }
+   
+   
+   #searchForm {
+   margin-left:400px;
+   }
+   
+   #myProjects {
+   border: solid 1px black;
+   border-height:600px;
+   width:1000px; 
+   height:300px;
+   margin-top:50px;
+   margin-left: 100px;   
+   }
+   
+   .bottomButtons{
+   float:right;
+   margin-right:30px;
+   }
+   
+ 
+   
+   .topButtons{
+   float:right;
+   }
+
+   #container2 {
+   border: solid 1px black;
+   width:1100px;
+   height:660px;
+
+   margin-left: 50px;
+   }   
+
+	#description{
+	margin: 0 32px;
+	}
+	
+	#currentActivities{
+	border:1px solid black;
+	margin-top:25px;
+	height:350px;
+	width:50%;
+	margin-left:32px;
+	float:left;
+	}
+	
+	#activities {
+	margin:10px;
+	}
+	
+	#statusBox{
+	border:1px solid black;
+	margin-top:25px; 
+	margin-left:30px;
+	height:280px;	
+	width:380px;
+	float:left;	
+	padding-left:20px;
+	}
+   
+    table,tr,th,td{
+    border: 1px solid black;
+    padding: 5px;
+    border-collapse:collapse;
+    margin-left:20px;
+    margin-top:20px;
+    }
+   
+    h3, h4 {
+    padding-left:15px;  
+    }
+   
+    th {
+    background-color:#D0D0D0 ;
+    padding:6px;
+    }
+   
+    #statusButton{
+    float:right;
+    margin-right:33px;
+    margin-top:30px;   
+    }
+   
+    nav {
+    margin-top:60px;
+    margin-left: 10px;
+    }
+   
+    ul {
+    list-style-type: none;
+    margin: 0;	
+    }
+	
+    li {
+    display:inline;
+
+    }
+
+    .navA {
+    width: 100px;
+	text-decoration:none;
+	border:solid black 1px ;
+	border-bottom:none;
+    background-color:#D0D0D0 ;
+	color:black;
+	font-size:14px;
+	padding:0 10px 0 10px;
+	}
+	
+	.navA:hover{
+    background-color:#628794 ;	 
+	}
+   
+	.navA:active{
+    background-color:#ffffff ;
+	font-weight:bold;
+	}	
+   
+   
+  
+  </style>
+  <script>
+
+  
+  </script>
+  <body>
+    <div id ="main">
+	  <button id="homeButton">Home</button>
+
+			  <a id="searchForm">
+	  	  <input type="text"  value="Search" id="search">
+	  <input type="submit" value="Go" id="go">
+	  </a> 
+
+	 
+
+    <div class="topButtons">
+	  <button id="settingsButton">Settings</button>
+	  <button id="profileButton">Profile</button>
+	</div> 
+    
+  <nav id="navMain">
+    <ul class="navBar">
+      <li><a class="navA" href="#overview">Overview</a></li>
+      <li><a class="navA" href="#activities">Activities</a></li>
+      <li><a class="navA" href="#progress">Progress</a></li>
+      <li><a class="navA" href="#users">Users</a></li>
+  </ul>
+  </nav>
+	  
+	  <div id="container2">
+	    <h3>My Container</h3>
+		
+		<div id ="description">
+		  <TEXTAREA Name="content" ROWS=10 COLS=130>Description...</TEXTAREA>
+		
+		</div>
+		<div id="currentActivities">
+		  <h4>Current Activities:</h3>
+		  <table id="activities">
+	        <thead>
+	          <tr>
+			  <th width="100px" align="left" height="100px">Name  </th>
+			  <th width = "200px" align="left">ID</th>
+			  <th width= "295px" align="left">Due Date</th>
+			  <th width="100px" align="left">Days Left</th>
+			</tr>
+	      </thead>
+		  <tbody>
+		    <tr >
+			  <td height="60px">Content 1 </td>
+			  <td>Project 2  </td>
+			  <td>15.02.2015</td>
+			  <td>2  </td>
+			</tr>
+		    <tr>
+			  <td height="60px">Content 2</td>
+			  <td>Project 5</td>
+			  <td>18.02.2015</td>
+			  <td>5  </td>
+			</tr>
+		  </tbody>
+	    </table>	
+		</div>
+		
+		<div id = "statusBox">
+		 <p>Status: </p>
+		 <p>Project Manager </p>
+		 <p>Project Progress</p>			
+		</div>
+	    <button id="statusButton">Edit Project Setup  </button> 
+
+	  
+	  </div>
+	  
+    </div>
+  </body>
+
+</html> 

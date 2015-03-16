@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Main</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+  <style type="text/css">
+    body {
+    font-family: arial, "Comic Sans MS", calibri, sans-serif;
+    }
+   
+    #main {
+    border: solid 1px black;
+    border-height:600px;
+    width:1200px;
+    height:800px;
+    }
+   
+   
+   
+    #searchForm {
+    margin-left:400px;
+    }
+   
+    #myProjects {
+    border: solid 1px black;
+    border-height:600px;
+    width:1000px; 
+    height:300px;
+    margin-top:50px; 
+    margin-left: 100px;   
+    }
+   
+    .bottomButtons{
+    float:right;
+    margin-right:30px;
+    position:static;
+    padding-bottom:0;
+    }
+   
+    #myActivities {
+    border: solid 1px black;
+    border-height:800px;
+    width:1000px;
+    height:300px;
+    margin-left: 100px;
+    }  
+   
+    .topButtons{
+    float:right;
+    }
+	table {
+	width:90%;
+	}
+
+	#projectsTable thead {
+    display: inline-block;
+	    width: 100%;
+	}
+	#projectsTable tbody {
+    height: 160px;
+    display: inline-block;
+    width: 100%;
+    overflow: scroll;
+	}
+
+    table,tr,th,td{
+    border: 1px solid black;
+    padding: 5px;
+    border-collapse:collapse;
+    margin-left:20px;
+    font-size:14px;
+    }
+   
+   h3 {
+   padding-left:15px;  
+   }
+   
+   th {
+   background-color:#D0D0D0 ;
+   
+   }   
+  
+  </style>
+  <script>
+    function create(){
+    var table = document.getElementById("projectsTable");
+	var p = prompt("Please enter a name for your project");
+    var rowCount=table.rows.length;
+    var row = table.insertRow(rowCount);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = p;
+    cell2.innerHTML = "";		  
+	}
+	
+    function deleteRow(){
+    var table = document.getElementById("projectsTable");
+    var p = prompt("Please enter the name of the project you wish to remove");
+    for (var i = 0;i<table.rows.length;i++){
+    if (p == table.rows[i].cells.item(0).innerHTML){
+    table.deleteRow(i);
+    }
+
+    }
+    }
+
+
+
+</script>
+ 
+
+  </script>
+  <body>
+    <div id ="main">
+	  <button id="homeButton">Home</button>
+
+			  <a id="searchForm">
+	  	  <input type="text"  value="Search" id="search">
+	  <input type="submit" value="Go" id="go">
+	  </a> 
+
+	 
+
+    <div class="topButtons">
+	  <button id="settingsButton">Settings</button>
+	  <button id="profileButton">Profile</button>
+	</div> 
+  
+
+	  <div id ="myProjects">  
+	    <h3>  My Projects </h3>
+	    <table id="projectsTable">
+		
+	      <tbody>
+	        <tr>
+		  <td width="100px" align="left" style="background-color:#D0D0D0";>Name  </th>
+		  <td width="765px" align="left" style="background-color:#D0D0D0";>Status  </th>
+		</tr>	
+			<!--	
+		    <tr>
+			  <td id="projectField" width="100px"> </td>
+			  <td width="750px">Planning  </td>		
+			</tr>
+			
+		    <tr>
+			  <td id="projectField1" width="100px"></td>
+			  <td width="750px">Concept</td>
+			</tr>
+			<tr>
+			  <td id = "projectField2" width="100px"></td>
+			  <td width="750px">Test Phase</td>
+			 </tr>
+			
+			-->
+		  </tbody>
+
+	    </table>
+		<br>
+	    <div class="bottomButtons">
+	      <button id="CreateView" onclick="create()">Create  </button>
+	      <button id="deleteView" onclick="deleteRow()">Delete  </button>
+	      <button id="projectsView" onclick="view()">View  </button>
+	      <button id="editsView" onclick="readRow()">Edits  </button>
+	    </div>
+	  </div>
+	  
+	  <div id="myActivities">
+	    <h3>My Activites</h3>
+		
+	    <table id="activitiesTable">
+	      <thead>
+	        <tr>
+		  <th width="100px" align="left">Name  </th>
+		  <th width = "200px" align="left">Project</th>
+		  <th width= "295px" align="left">Due to</th>
+	          <th width="100px" align="left">Days Left</th>
+		  <th width ="135px" align="left">Status</th>
+		</tr>
+	      </thead>
+		  <tbody>
+		    <tr>
+		      <td>Content 1 </td>
+			<td>Project 2  </td>
+			<td>15.02.2015</td>
+			<td>2  </td>
+			<td>pending</td>
+		    </tr>
+		    <tr>
+		      <td>Content 2</td>
+		      <td>Project 5</td>
+		      <td>18.02.2015</td>
+		      <td>5  </td>
+		      <td>Not started</td>
+	            </tr>
+		    <tr>
+		      <td>Content 3</td>
+		      <td>Project 2</td>
+		      <td>21.02.2015</td>
+		      <td>9  </td>
+		      <td>In progress</td>
+		  </tbody>
+	    </table>
+		<br><br>
+        <div class="bottomButtons">
+	      <button id="projectsView">View  </button>
+	      <button id="editsView">Edits  </button>
+	    </div>
+	  
+	  </div>
+	  
+    <div>
+  </body>
+
+</html>  
