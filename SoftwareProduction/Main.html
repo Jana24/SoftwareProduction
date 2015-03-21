@@ -21,12 +21,15 @@ and open the template in the editor.
     width:1200px;
     height:800px;
     }
-   
-   
-   
+     
     #searchForm {
     margin-left:400px;
     }
+   
+    .topButtons{
+    float:right;
+    }
+	
    
     #myProjects {
     border: solid 1px black;
@@ -34,14 +37,17 @@ and open the template in the editor.
     width:1000px; 
     height:300px;
     margin-top:50px; 
-    margin-left: 100px;   
+    margin-left: 100px;
+	//myProjects is a rectangle containing the first table, the heading 'My Projects' and the buttons at the bottom
     }
+   
    
     .bottomButtons{
     float:right;
     margin-right:30px;
     position:static;
     padding-bottom:0;
+    //There are two tables on this main page.  The class bottomButtons contains the buttons at the bottom of both tables 
     }
    
     #myActivities {
@@ -50,24 +56,24 @@ and open the template in the editor.
     width:1000px;
     height:300px;
     margin-left: 100px;
+	//myActivities is essentially a rectangle holding the bottom table of the page, the heading My Activities and the bottom buttons
     }  
-   
-    .topButtons{
-    float:right;
-    }
+
 	table {
 	width:90%;
+	//This is important in terms of keeping the table at a good size
 	}
 
 	#projectsTable thead {
     display: inline-block;
-	    width: 100%;
+	width: 100%;
 	}
+	
 	#projectsTable tbody {
     height: 160px;
     display: inline-block;
     width: 100%;
-    overflow: scroll;
+    overflow: scroll; //scroll is added to enable user to create as many projects as possible without extending size of My Projects table
 	}
 
     table,tr,th,td{
@@ -78,45 +84,54 @@ and open the template in the editor.
     font-size:14px;
     }
    
-   h3 {
-   padding-left:15px;  
-   }
+    h3 {
+    padding-left:15px;  
+    }
    
-   th {
-   background-color:#D0D0D0 ;
+    th {
+    background-color:#D0D0D0 ;  
+    }
    
-   }   
-  
   </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>
     function create(){
+	<!--get relevant table by ID -->
     var table = document.getElementById("projectsTable");
+	<!-- Allow user to manually name project -->
 	var p = prompt("Please enter a name for your project");
     var rowCount=table.rows.length;
+	<!--create row for table -->
     var row = table.insertRow(rowCount);
+	<!-- create cells -->
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    cell1.innerHTML = p;
-    cell2.innerHTML = "";		  
+	<!-- store the user's name for project in the first cell, which is cell(0), named as cell1 -->
+    cell1.innerHTML = p;		  
 	}
 	
-    function deleteRow(){
-    var table = document.getElementById("projectsTable");
-    var p = prompt("Please enter the name of the project you wish to remove");
-    for (var i = 0;i<table.rows.length;i++){
-    if (p == table.rows[i].cells.item(0).innerHTML){
-    table.deleteRow(i);
-    }
+	function view(){
 
-    }
-    }
+    }	
+
+
+	function deleteRow(){
+	var table = document.getElementById("projectsTable");
+	<!-- prompt user to name project they wish to delete -->
+	var p = prompt("Please enter the name of the project you wish to remove");
+	<!-- create loop to iterate through each project name ->
+	for (var i = 0;i<table.rows.length;i++){
+	if (p == table.rows[i].cells.item(0).innerHTML){
+	<!-- if project name matches var p, delete that project -->
+	table.deleteRow(i);
+	}
+
+	}
+	}
 
 
 
 </script>
- 
-
-  </script>
   <body>
     <div id ="main">
 	  <button id="homeButton">Home</button>
@@ -136,29 +151,14 @@ and open the template in the editor.
 
 	  <div id ="myProjects">  
 	    <h3>  My Projects </h3>
+		<!-- create project ID for the purpose of allowing javascript functions to work -->
 	    <table id="projectsTable">
-		
+		<!-- create table 1 -->
 	      <tbody>
 	        <tr>
-		  <td width="100px" align="left" style="background-color:#D0D0D0";>Name  </th>
-		  <td width="765px" align="left" style="background-color:#D0D0D0";>Status  </th>
-		</tr>	
-			<!--	
-		    <tr>
-			  <td id="projectField" width="100px"> </td>
-			  <td width="750px">Planning  </td>		
+			  <td width="100px" align="left" style="background-color:#D0D0D0";>Name  </th>
+			  <td width="765px" align="left" style="background-color:#D0D0D0";>Status  </th>
 			</tr>
-			
-		    <tr>
-			  <td id="projectField1" width="100px"></td>
-			  <td width="750px">Concept</td>
-			</tr>
-			<tr>
-			  <td id = "projectField2" width="100px"></td>
-			  <td width="750px">Test Phase</td>
-			 </tr>
-			
-			-->
 		  </tbody>
 
 	    </table>
@@ -171,40 +171,41 @@ and open the template in the editor.
 	    </div>
 	  </div>
 	  
+	  <!-- now create a second section to contain table number 2 -->
 	  <div id="myActivities">
 	    <h3>My Activites</h3>
 		
 	    <table id="activitiesTable">
 	      <thead>
 	        <tr>
-		  <th width="100px" align="left">Name  </th>
-		  <th width = "200px" align="left">Project</th>
-		  <th width= "295px" align="left">Due to</th>
-	          <th width="100px" align="left">Days Left</th>
-		  <th width ="135px" align="left">Status</th>
-		</tr>
+			  <th width="100px" align="left">Name  </th>
+			  <th width = "200px" align="left">Project</th>
+			  <th width= "295px" align="left">Due to</th>
+			  <th width="100px" align="left">Days Left</th>
+			  <th width ="135px" align="left">Status</th>
+			</tr>
 	      </thead>
 		  <tbody>
 		    <tr>
-		      <td>Content 1 </td>
-			<td>Project 2  </td>
-			<td>15.02.2015</td>
-			<td>2  </td>
-			<td>pending</td>
-		    </tr>
+			  <td>Content 1 </td>
+			  <td>Project 2  </td>
+			  <td>15.02.2015</td>
+			  <td>2  </td>
+			  <td>pending</td>
+			</tr>
 		    <tr>
-		      <td>Content 2</td>
-		      <td>Project 5</td>
-		      <td>18.02.2015</td>
-		      <td>5  </td>
-		      <td>Not started</td>
-	            </tr>
-		    <tr>
-		      <td>Content 3</td>
-		      <td>Project 2</td>
-		      <td>21.02.2015</td>
-		      <td>9  </td>
-		      <td>In progress</td>
+			  <td>Content 2</td>
+			  <td>Project 5</td>
+			  <td>18.02.2015</td>
+			  <td>5  </td>
+			  <td>Not started</td>
+			</tr>
+			<tr>
+			  <td>Content 3</td>
+			  <td>Project 2</td>
+			  <td>21.02.2015</td>
+			  <td>9  </td>
+			  <td>In progress</td>
 		  </tbody>
 	    </table>
 		<br><br>

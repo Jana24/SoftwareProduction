@@ -21,19 +21,9 @@ and open the template in the editor.
     width:1200px;
     height:800px;
     }
-   
-   
+     
     #searchForm {
     margin-left:400px;
-    }
-   
-    #myProjects {
-    border: solid 1px black;
-    border-height:600px;
-    width:1000px; 
-    height:300px;
-    margin-top:50px;
-    margin-left: 100px;   
     }
    
     .bottomButtons{
@@ -41,7 +31,6 @@ and open the template in the editor.
     margin-right:30px;
     }
    
- 
     .topButtons{
     float:right;
     }
@@ -53,23 +42,22 @@ and open the template in the editor.
     margin-left: 50px;
     }   
 	
-
-	#ToDo{
+	#notStarted{
 	margin: 0 32px;
 	float:left;
 	}
 
-	#InProgress{
+	#developing{
 	margin: 0 32px;
 	float:left;
 	}
 	
-	#CodeReview{
+	#testing{
 	margin: 0 32px;
 	float:left;		
 	}
 
-	#Done{
+	#completed{
 	margin: 0 32px;
 	float:left;		
 	}
@@ -137,55 +125,62 @@ and open the template in the editor.
 	  <button id="profileButton">Profile</button>
 	</div> 
     
-        <nav id="navMain">
-          <ul class="navBar">
-          <h5>Project1</h5>
-          <li><a class="navA" href="#overview">Overview</a></li>
-          <li><a class="navA" href="#activities">Activities</a></li>
-          <li><a class="navA" href="#users">Users</a></li>
-          </ul>
-        </nav>
-	  
-	<div id="container2">
-		<div id ="ToDo">
-		 <h5>To do</h5>
+	<!-- create Nav bar -->
+    <nav id="navMain">
+      <ul class="navBar">
+    	<h5>Project1</h5>
+        <li><a class="navA" href="#overview">Overview</a></li>
+        <li><a class="navA" href="#activities">Activities</a></li>
+        <li><a class="navA" href="#users">Users</a></li>
+      </ul>
+    </nav>
+	 
+	 <!-- create main page container -->
+	  <div id="container2">
+		<!--create div for each activity status -->
+		<div id ="notStarted">
+		 <h5>Not Started</h5>
 	      <SELECT size="30" id ="listbox1" style = "width:200px">
-                <OPTION Value="">Menu item</OPTION>
-                <OPTION Value="">Menu item</OPTION>
-                <OPTION Value="">Menu item</OPTION>
-              </SELECT>
+            <OPTION Value="">Menu item</OPTION>
+            <OPTION Value="">Menu item</OPTION>
+            <OPTION Value="">Menu item</OPTION>
+
+          </SELECT>
 			<br><br>
-              <div id="buttons">
-                <button>Add Activity</button>
-              </div> 
-	    </div>
-            <div id ="InProgress">
-		  <h5>In Progress</h5>
-	      <SELECT size="30" id ="listbox1" style = "width:200px;">
-                <OPTION Value="">Menu item</OPTION>
-                <OPTION Value="">Menu item</OPTION>
-                <OPTION Value="">Menu item</OPTION>
-              </SELECT>
-            </div>	
-	    <div id ="CodeReview">
-		  <h5>Code Review</h5>
-	      <SELECT size="30" id ="listbox1" style = "width:200px;">
-                 <OPTION Value="">Menu item</OPTION>
-                 <OPTION Value="">Menu item</OPTION>
-                 <OPTION Value="">Menu item</OPTION>
+		  <div id="buttons">
+ 		    <button>Add Activity</button>
+		  </div>
+		</div>
+		
 
-              </SELECT>
-            </div>		
-
-            <div id ="Done">
-		  <h5>Done</h5>
+		<div id ="developing">
+		  <h5>Developing</h5>
 	      <SELECT size="30" id ="listbox1" style = "width:200px;">
-                 <OPTION Value="">Menu item</OPTION>
-                 <OPTION Value="">Menu item</OPTION>
-                 <OPTION Value="">Menu item</OPTION>
-              </SELECT>
-            </div>				  
-	</div>
+            <OPTION Value="">Menu item</OPTION>
+            <OPTION Value="">Menu item</OPTION>
+            <OPTION Value="">Menu item</OPTION>
+          </SELECT>
+		</div>	
+
+		<div id ="testing">
+		  <h5>Testing</h5>
+	      <SELECT size="30" id ="listbox1" style = "width:200px;">
+            <OPTION Value="">Menu item</OPTION>
+            <OPTION Value="">Menu item</OPTION>
+            <OPTION Value="">Menu item</OPTION>
+          </SELECT>
+		</div>		
+
+		<div id ="completed">
+		  <h5>Completed</h5>
+	      <SELECT size="30" id ="listbox1" style = "width:200px;">
+            <OPTION Value="">Menu item</OPTION>
+            <OPTION Value="">Menu item</OPTION>
+            <OPTION Value="">Menu item</OPTION>
+          </SELECT>
+		</div>			
+	  
+	  </div>
 	  
     </div>
   </body>

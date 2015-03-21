@@ -10,39 +10,27 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-  <style type="text/css">
-   body {
-   font-family: arial, "Comic Sans MS", calibri, sans-serif;
-   }
+   <style type="text/css">
+    body {
+    font-family: arial, "Comic Sans MS", calibri, sans-serif;
+    }
    
-   #main {
-   border: solid 1px black;
-   border-height:600px;
-   width:1200px;
-   height:800px;
-   }
+    #main {
+    border: solid 1px black;
+    border-height:600px;
+    width:1200px;
+    height:800px;
+    } 
    
+    #searchForm {
+    margin-left:400px;
+    }
    
-   #searchForm {
-   margin-left:400px;
-   }
-   
-   #myProjects {
-   border: solid 1px black;
-   border-height:600px;
-   width:1000px; 
-   height:300px;
-   margin-top:50px;
-   margin-left: 100px;   
-   }
-   
-   .bottomButtons{
-   float:right;
-   margin-right:30px;
-   }
-   
- 
-   
+    .bottomButtons{
+    float:right;
+    margin-right:30px;
+    }
+     
     .topButtons{
     float:right;
     }
@@ -54,25 +42,7 @@ and open the template in the editor.
     margin-left: 50px;
     }   
 
-	#allUsers{
-	margin: 0 32px;
-	float:left;
-	}
-	#textFields{
-	height:400px;	
-	width:500px;
-	float:left;	
-	padding-top:100px;
-	margin-left:80px;
-	}
-	
-	#forms{
-	padding-left:100px;
-	}
-	
-	#buttons{
-	margin-left:90px;
-	}
+
     h3, h4 {
     padding-left:30px;  
     }
@@ -89,7 +59,6 @@ and open the template in the editor.
 	
     li {
     display:inline;
-
     }
 
     .navA {
@@ -111,8 +80,25 @@ and open the template in the editor.
     background-color:#ffffff ;
 	font-weight:bold;
 	}	
-   
+   	
+	#textFields{
+	height:400px;	
+	width:500px;
+	float:left;	
+	padding-top:100px;
+	margin-left:80px;
+	}
 	
+	#buttons{
+	margin-left:90px;
+	//this contains the + and - buttons below the listbox
+	}	
+
+	#allUsers{
+	margin: 0 32px;
+	float:left;
+	//this contains the listbox on the left of the page
+	}
   
   </style>
   <script>
@@ -120,33 +106,33 @@ and open the template in the editor.
   
   </script>
   <body>
+    <!-- create buttons and search field at top of the page -->
     <div id ="main">
 	  <button id="homeButton">Home</button>
 
 			  <a id="searchForm">
 	  	  <input type="text"  value="Search" id="search">
 	  <input type="submit" value="Go" id="go">
-	  </a> 
-
-	 
-
-    <div class="topButtons">
-	  <button id="settingsButton">Settings</button>
-	  <button id="profileButton">Profile</button>
-	</div> 
-    
-  <nav id="navMain">
-    <ul class="navBar">
-      <li><a class="navA" href="#user">User</a></li>
-      <li><a class="navA" href="#roles">Roles</a></li>
-
-  </ul>
-  </nav>
-	  
+	  </a>  
+	
+      <div class="topButtons">
+	    <button id="settingsButton">Settings</button>
+	    <button id="profileButton">Profile</button>
+	  </div> 
+    <!-- create nav bar for the page-->
+      <nav id="navMain">
+        <ul class="navBar">
+          <li><a class="navA" href="#user">User</a></li>
+          <li><a class="navA" href="#roles">Roles</a></li>
+        </ul>
+       </nav>
+	   
+	  <!-- create a container to hold the main bulk of the page -->
 	  <div id="container2">
-	    <h3>All Users</h3>
+	    <h3>All Roles</h3>
 		
 		<div id ="allUsers">
+		<!-- create a listbox on the left of the container -->
 	      <SELECT size="20" id ="listbox1" style = "width:250px">
             <OPTION Value="Jana">Jana</OPTION>
             <OPTION Value="user">User</OPTION>
@@ -161,13 +147,14 @@ and open the template in the editor.
 		  </div>	
 		</div>
 		
-
+		<!-- add a description box to go in the middle -->
 		
 		<div id = "textFields">
 		  <div id ="description">
 		   <TEXTAREA Name="content" ROWS=12 COLS=60>Description...</TEXTAREA>
 		
-		  </div>	
+		  </div>
+		 <!-- add some buttons under the description field -->
 		 <button id="confirm" style="float:right;margin-right:200px;margin-top:20px;">Confirm  </button> <br>	  
 		 <button id="cancel" style="float:left; margin-left:100px;margin-top:28px;">Cancel  </button> 		<br> 
 		 <button id="editRole" style="float:right;margin-right:191px;margin-top:10px;">Edit Role</button> 
