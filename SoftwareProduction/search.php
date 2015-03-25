@@ -63,15 +63,16 @@ echo '<option value="users">Users</option>';
 echo '</select></TD>';
 echo '<TD><INPUT TYPE=reset VALUE="Clear"></TD>'
 . '<TD><input type="submit" value="Search" name="detailsearch" ></TD>'; 
-//echo '		  <input type="checkbox" name="vehicle" value="Activities">Activities'; 
-//echo '		  <input type="checkbox" name="vehicle" value="Projects">Projects '; 
-//echo '		  <input type="checkbox" name="vehicle" value="Users">Users'; 
-//echo '		  <input type="checkbox" name="vehicle" value="Roles">Roles'; 
 echo '</form>	'; 
 echo '</div> '; 
 
 //if use the search button at the top of page
 if (!empty($_POST['topsearch'])) { 
+
+  
+$text=(isset($_POST['search1']))? $_POST['search1']:"";
+if ( !empty($text)) {
+    // display Search Projects Result
     echo "<table border=\"1\">";
 echo "  <h1> Search results for projects: </h1>";
 echo "  <tr>";
@@ -85,10 +86,6 @@ echo "	 <th>creationDate</th>";
 echo "	 <th>startDate</th>";
 echo "	 <th>dueDate</th>";
 echo "  </tr>  ";
-  
-$text=(isset($_POST['search1']))? $_POST['search1']:"";
-if ( !empty($text)) {
-    // display Search Projects Result
 $query1 = "select * from projects where name like '%$text%' or description like '%$text%' order by id limit 100; ";
 //  execute the query and display projects in results
   $result1= mysqli_query($connection ,$query1);
@@ -137,6 +134,10 @@ echo "  </tr>  ";
   $query2 = "select * from activities where name like '%$text%' or description like '%$text%' order by id limit 100; ";
   //  execute the query and display activities in results
   $result2= mysqli_query($connection ,$query2);
+  if(!$result2){
+    include ('error.html');
+	die ("Could not query the database: <br />". mysql_error());
+  } 
   while($row = mysqli_fetch_assoc($result2)){ //identifying columns by name
         $id = $row["id"]; 
         $type = $row["type"]; 
@@ -234,6 +235,10 @@ if (!empty($_POST['detailsearch'])) {
                 $query2 = "select * from activities where name like '%$searchtext%' or description like '%$searchtext%' order by id limit 100; ";
                 //  execute the query and display activities in results
                 $result2= mysqli_query($connection ,$query2);
+                if(!$result2){
+                    include ('error.html');
+                    die ("Could not query the database: <br />". mysql_error());
+                    } 
                 while($row = mysqli_fetch_assoc($result2)){ //identifying columns by name
                     $id = $row["id"]; 
                     $type = $row["type"]; 
@@ -271,6 +276,10 @@ if (!empty($_POST['detailsearch'])) {
                 $query3 = "select * from users where name like '%$searchtext%' order by id limit 100; ";
                 //  execute the query and display activities in results
                 $result3= mysqli_query($connection ,$query3);
+                if(!$result3){
+                    include ('error.html');
+                    die ("Could not query the database: <br />". mysql_error());
+                    } 
                 while($row = mysqli_fetch_assoc($result3)){ //identifying columns by name
                     $id = $row["id"];                     
                     $name = $row["name"];	
