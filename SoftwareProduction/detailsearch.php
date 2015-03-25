@@ -26,7 +26,7 @@
   include 'topsearch.php';
 echo '	  <div id="container2">'; 
 	  
-echo '	    <form  method=POST ACTION="search.php" style=\"font-size:14px;\">';     
+echo '	    <form  method=POST ACTION="detailsearch.php" style=\"font-size:14px;\">';     
 echo '<TABLE border=0 cellpadding=5>';
 echo '<TR><TD><input type="text"  name="search2" size="50" ></TD>'; 
 echo '<TD><select name="option">';
