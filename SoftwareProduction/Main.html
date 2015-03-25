@@ -11,6 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
   <style type="text/css">
+
     body {
     font-family: arial, "Comic Sans MS", calibri, sans-serif;
     }
@@ -20,16 +21,9 @@ and open the template in the editor.
     border-height:600px;
     width:1200px;
     height:800px;
-    }
-     
-    #searchForm {
-    margin-left:400px;
-    }
+    }	
    
-    .topButtons{
-    float:right;
-    }
-	  
+    	  
     #myProjectsMain {
     border: solid 1px black;
     border-height:600px;
@@ -58,22 +52,34 @@ and open the template in the editor.
 	//myActivities is essentially a rectangle holding the bottom table of the page, the heading My Activities and the bottom buttons
     }  
 
-	table {
-	width:90%;
-	//This is important in terms of keeping the table at a good size
-	}
-
-	#projectsTableMain thead {
+    #projectsTableMain thead {
     display: inline-block;
-	width: 100%;
-	}
+    width: 100%;
+    }
+    
 	
-	#projectsTableMain tbody {
+    .bottomButtons{
+    float:right;
+    margin-right:30px;
+    }
+	
+    .topButtons{
+    float:right;
+    }
+	
+    #projectsTableMain tbody {
     height: 160px;
     display: inline-block;
     width: 100%;
     overflow: scroll; //scroll is added to enable user to create as many projects as possible without extending size of My Projects table
 	}
+    #searchForm {
+    margin-left:400px;
+    }
+    table {
+    width:90%;
+    //This is important in terms of keeping the table at a good size
+    }
 
     table,tr,th,td{
     border: 1px solid black;
