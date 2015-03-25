@@ -23,3 +23,6 @@
   if (!$db_select){
     die ("could not select the database: <br />". mysql_error());
   }
+  
+  // echo in front of html
+  

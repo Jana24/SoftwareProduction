@@ -35,7 +35,7 @@ and open the template in the editor.
     float:right;
     }
 
-    #container2 {
+    #containerPO {
     border: solid 1px black;
     width:1100px;
     height:660px;
@@ -43,11 +43,11 @@ and open the template in the editor.
     margin-left: 50px;
     }   
 
-	#description{
+	#descriptionPO{
 	margin: 0 32px;
 	}
 	
-	#currentActivities{
+	#currentActivitiesPO{
 	border:1px solid black;
 	margin-top:25px;
 	height:350px;
@@ -56,11 +56,11 @@ and open the template in the editor.
 	float:left;
 	}
 	
-	#activities {
+	#activitiesPO {
 	margin:10px;
 	}
 	
-	#statusBox{
+	#statusBoxPO{
 	border:1px solid black;
 	margin-top:25px; 
 	margin-left:30px;
@@ -87,7 +87,7 @@ and open the template in the editor.
         padding:6px;
         }
    
-        #statusButton{
+        #statusButtonPO{
         float:right;
         margin-right:33px;
         margin-top:30px;   
@@ -155,19 +155,19 @@ and open the template in the editor.
     </nav>
 	
 	<!-- create container holding page content in a large rectangle -->
-	  <div id="container2">
+	  <div id="containerPO">
 	    <h3>My Container</h3>
 		
 		<!-- Create description area under My Container header -->
-		<div id ="description">
+		<div id ="descriptionPO">
 		  <TEXTAREA Name="content" ROWS=10 COLS=130>Description...</TEXTAREA>
 		
 		</div>
 		
 		<!-- create a div with Current Activities table -->
-		<div id="currentActivities">
+		<div id="currentActivitiesPO">
 		  <h4>Current Activities:</h3>
-		  <table id="activities">
+		  <table id="activitiesPO">
 	        <thead>
 	          <tr>
 			  <th width="100px" align="left" height="100px">Name  </th>
@@ -194,12 +194,12 @@ and open the template in the editor.
 		</div>
 		
 		<!-- statusBox div to contain the project manager name and the project status (not started, in progress, complete) -->
-		<div id = "statusBox">
+		<div id = "statusBoxPO">
 		 <p>Status: </p>
 		 <p>Project Manager: </p>
 		 <p>Project Status: </p>			
 		</div>
-	    <button id="statusButton">Edit Project Setup  </button>   
+	    <button id="statusButtonPO">Edit Project Setup  </button>   
 	  </div>
 	  
     </div>
