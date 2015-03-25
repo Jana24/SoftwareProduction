@@ -30,7 +30,7 @@ and open the template in the editor.
     float:right;
     }
 	  
-    #myProjects {
+    #myProjectsMain {
     border: solid 1px black;
     border-height:600px;
     width:1000px; 
@@ -41,7 +41,7 @@ and open the template in the editor.
     }
    
    
-    .bottomButtons{
+    .bottomButtonsMain{
     float:right;
     margin-right:30px;
     position:static;
@@ -49,7 +49,7 @@ and open the template in the editor.
     //There are two tables on this main page.  The class bottomButtons contains the buttons at the bottom of both tables 
     }
    
-    #myActivities {
+    #myActivitiesMain {
     border: solid 1px black;
     border-height:800px;
     width:1000px;
@@ -63,12 +63,12 @@ and open the template in the editor.
 	//This is important in terms of keeping the table at a good size
 	}
 
-	#projectsTable thead {
+	#projectsTableMain thead {
     display: inline-block;
 	width: 100%;
 	}
 	
-	#projectsTable tbody {
+	#projectsTableMain tbody {
     height: 160px;
     display: inline-block;
     width: 100%;
@@ -148,10 +148,10 @@ and open the template in the editor.
 	</div> 
   
 
-	  <div id ="myProjects">  
+	  <div id ="myProjectsMain">  
 	    <h3>  My Projects </h3>
 		<!-- create project ID for the purpose of allowing javascript functions to work -->
-	    <table id="projectsTable">
+	    <table id="projectsTableMain">
 		<!-- create table 1 -->
 	      <tbody>
 	        <tr>
@@ -162,7 +162,7 @@ and open the template in the editor.
 
 	    </table>
 		<br>
-	    <div class="bottomButtons">
+	    <div class="bottomButtonsMain">
 	      <button id="CreateView" onclick="create()">Create  </button>
 	      <button id="deleteView" onclick="deleteRow()">Delete  </button>
 	      <button id="projectsView" onclick="view()">View  </button>
@@ -171,7 +171,7 @@ and open the template in the editor.
 	  </div>
 	  
 	  <!-- now create a second section to contain table number 2 -->
-	  <div id="myActivities">
+	  <div id="myActivitiesMain">
 	    <h3>My Activites</h3>
 		
 	    <table id="activitiesTable">
