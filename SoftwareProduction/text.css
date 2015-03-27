@@ -106,3 +106,43 @@ and open the template in the editor.
     float:left;
 //this contains the listbox on the left of the page
     }
+    
+    #containerCreateProject1 {
+    width:1000px;
+    height:660px;
+    margin-left: 100px;
+    margin-top:150px;
+    font-weight:bold;
+    }   
+    
+    #containerAdminUser {
+    border: solid 1px black;
+    width:1100px;
+    height:660px;
+    margin-left: 50px;
+    }   
+
+	#allUsersAdminUser{
+	margin: 0 32px;
+	float:left;
+	//There is a listbox on the left of the page.  It is contained in this div
+	}
+	
+	#textFieldsAdminUser{
+	border:1px solid black;
+	height:400px;	
+	width:500px;
+	float:left;	
+	padding-top:50px;
+	//The rectangle in the middle of the page holding Name, Email, Location, Phone fields is contained in this div
+	}
+	
+	#formsAU{
+	padding-left:100px;
+	}
+	
+	#buttonsAU{
+	margin-left:90px;
+	}
+        
+        
