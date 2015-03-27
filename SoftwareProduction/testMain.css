@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27-Mar-2015, 18:09:17
+    Author     : danielmckean
+*/
+    body {
+    font-family: arial, "Comic Sans MS", calibri, sans-serif;
+    }
+   
+    #main {
+    border: solid 1px black;
+    border-height:600px;
+    width:1200px;
+    height:800px;
+    }	
+   
+    #searchForm {
+    margin-left:400px;
+    }
+    
+    .bottomButtons{
+    float:right;
+    margin-right:30px;
+    }
+	
+    .topButtons{
+    float:right;
+    }
+    #myProjectsMain {
+    border: solid 1px black;
+    border-height:600px;
+    width:1000px; 
+    height:300px;
+    margin-top:50px; 
+    margin-left: 100px;
+	//myProjects is a rectangle containing the first table, the heading 'My Projects' and the buttons at the bottom
+    }
+   
+   
+    .bottomButtonsMain{
+    float:right;
+    margin-right:30px;
+    position:static;
+    padding-bottom:0;
+    //There are two tables on this main page.  The class bottomButtons contains the buttons at the bottom of both tables 
+    }
+   
+    #myActivitiesMain {
+    border: solid 1px black;
+    border-height:800px;
+    width:1000px;
+    height:300px;
+    margin-left: 100px;
+	//myActivities is essentially a rectangle holding the bottom table of the page, the heading My Activities and the bottom buttons
+    }  
+
+    #projectsTableMain thead {
+    display: inline-block;
+    width: 100%;
+    }
+	
+    #projectsTableMain tbody {
+    height: 160px;
+    display: inline-block;
+    width: 100%;
+    overflow: scroll; //scroll is added to enable user to create as many projects as possible without extending size of My Projects table
+	}   	  
+    #myProjectsMain {
+    border: solid 1px black;
+    border-height:600px;
+    width:1000px; 
+    height:300px;
+    margin-top:50px; 
+    margin-left: 100px;
+	//myProjects is a rectangle containing the first table, the heading 'My Projects' and the buttons at the bottom
+    }
+    table {
+    width:90%;
+    //This is important in terms of keeping the table at a good size
+    }
+
+    table,tr,th,td{
+    border: 1px solid black;
+    padding: 5px;
+    border-collapse:collapse;
+    margin-left:20px;
+    font-size:14px;
+    }
+   
+    h3 {
+    padding-left:15px;  
+    }
+   
+    th {
+    background-color:#D0D0D0 ;  
+    }
