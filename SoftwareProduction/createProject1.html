@@ -15,10 +15,46 @@ and open the template in the editor.
         <link rel="stylesheet" href="/resources/demos/style.css">
         <script>
         $(function() {
-        $( "#datepickerstart" ).datepicker();
-        $( "#datepickerend" ).datepicker();
+            $( "#startDate" ).datepicker({ dateFormat: 'dd/mm/yy' }).val();
+            $( "#endDate" ).datepicker({ dateFormat: 'dd/mm/yy' }).val();
         });
         </script>
+        
+        <script type="text/javascript">
+            
+            $(document).ready(function(){
+               $("input#submit").click(function(){
+                    var proj_name = $("input#myName").val();
+                    var description = $("textarea#myDescription").val();
+                    var status = $("select#myStatus").val();
+                    var proj_start_date = $("date#startDate").val();
+                    var proj_end_date = $("date#endDate").val();
+                    
+                    if(proj_name == "" || description == "" || proj_start_date == "dd/mm/yyyy" || proj_end_date == "dd/mm/yyyy"){   
+                        alert("Please fill out all fields!");
+                    }
+                    //TODO check dates; start date has to be before end date, all dates after todays day
+                    else{
+                        alert("Perfect!" + proj_name + description + status);
+                        $.ajax({
+                            url: 'insert_project.php',
+                            type: 'post',
+                            data: { 
+                                name: proj_name,
+                                descr: description,
+                                status: status,
+                                s_date: proj_start_date,
+                                e_date: proj_end_date,},
+                            success: { alert("Yeah!"); }
+                        });
+                    }     
+                    
+               } );
+                
+            });
+            
+        </script>
+        
         
     </head>
   <style type="text/css">
@@ -72,45 +108,50 @@ and open the template in the editor.
   <body>
   <!-- Set the main template -->
     <div id ="main">
-	  <button id="homeButton">Home</button>
-	  <a id="searchForm">
-	    <input type="text"  value="Search" id="search">
-	    <input type="submit" value="Go" id="go">
-	  </a> 
+        <button id="homeButton">Home</button>
+        <a id="searchForm">
+            <input type="text"  value="Search" id="search">
+            <input type="submit" value="Go" id="go">
+        </a> 
 
 
-      <div class="topButtons">
+        <div class="topButtons">
 	    <button id="settingsButton">Settings</button>
 	    <button id="profileButton">Profile</button>
-	  </div> 
+        </div> 
     	
-	  <!-- create a container to wrap content in -->
-	  <div id="containerCreateProject1">
-		<!-- create a block which will contain the text forms -->
-		<div id="blockCreateProject1">
-                    <form id ="myName">
-                    Name: 
-                    <input type="text" name="proj_name" size="40"> <br><br><br><br>	
+        <!-- create a container to wrap content in -->
+        <div id="containerCreateProject1">
+            <!-- create a block which will contain the text forms -->
+            <form method="post" action="insert_project.php">
+            <div id="blockCreateProject1">
+                Name: 
+                <input type="text" id ="myName" name="proj_name" size="40" value="Test"> <br><br><br><br>	
 
-                    <form id ="myDescription">
-                    Description: <br><br> 
-                    <TEXTAREA name="proj_description" ROWS=8 COLS=50>Description...</TEXTAREA>
+                Description: <br><br> 
+                <TEXTAREA name="proj_description" id ="myDescription" ROWS=8 COLS=50>naaaa</TEXTAREA>
 
-                    <br><br><br><br>	
-                    <!-- below is code for start date and end date.  Perhaps we could consider adding a calendar so user doesn't manually type date in -->	
-                    <form id ="startDate">
-                    Start date: 
-                    <input type="date" name="proj_start_date" size="40" id="datepickerstart" value="dd/mm/yyyy">
-                    <br><br><br><br>	
+                <br><br><br><br>
 
-                    <form  id ="endDate">
-                    End date: 
-                    <input name="proj_end_date" type="text" size="40" id="datepickerend" value="dd/mm/yyyy"> 
+                Status: 
+                <select id="myStatus" name="status">
+                    <option id="myStatus" value="not_started">Not Started</option>
+                    <option id="myStatus" value="ungoing">Ungoing</option>
+                    <option id="myStatus" value="finished">Finished</option>
+                </select>
+                <br><br><br><br>	
 
-                    <br><br><br><br>	
-                    <input type="submit" name="submit" value="Next"/>
-		</div>
-                
+                Start date: 
+                <input type="date" id ="startDate" name="startDate" size="40" value="12/04/2015">
+                <br><br><br><br>	
+
+                End date: 
+                <input name="endDate" id ="endDate" type="text" size="40" value="24/04/2015"> 
+
+                <br><br><br><br>	
+                <input type="submit" value="Submit" id="submit" name="submit" value="Next"/>
+            </div>
+            </form>    
 	</div>
 	
     </div>
