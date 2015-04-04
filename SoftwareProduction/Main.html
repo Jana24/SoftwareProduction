@@ -33,37 +33,6 @@ and open the template in the editor.
     }
    
   </style>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script>
-    function create(){
-	<!--get relevant table by ID -->
-    var table = document.getElementById("projectsTable");
-	<!-- Allow user to manually name project -->
-	var p = prompt("Please enter a name for your project");
-    var rowCount=table.rows.length;
-	<!--create row for table -->
-    var row = table.insertRow(rowCount);
-	<!-- create cells -->
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-	<!-- store the user's name for project in the first cell, which is cell(0), named as cell1 -->
-    cell1.innerHTML = p;		  
-	}
-	function deleteRow(){
-	var table = document.getElementById("projectsTable");
-	<!-- prompt user to name project they wish to delete -->
-	var p = prompt("Please enter the name of the project you wish to remove");
-	<!-- create loop to iterate through each project name ->
-	for (var i = 0;i<table.rows.length;i++){
-	if (p == table.rows[i].cells.item(0).innerHTML){
-	<!-- if project name matches var p, delete that project -->
-	table.deleteRow(i);
-	}
-
-	}
-	}
-
-</script>
   <body>
     <div id ="main">
 	  <button id="homeButton">Home</button>
