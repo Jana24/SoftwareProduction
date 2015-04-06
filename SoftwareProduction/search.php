@@ -94,50 +94,7 @@ $query1 = "select * from projects where name like '%$text%' or description like 
 	die ("Could not query the database: <br />". mysql_error());
   } 
 
-  while($row = mysqli_fetch_assoc($result1)){ //identifying columns by name
-        $id = $row["id"]; 
-        $name = $row["name"];	
-        $status = $row["status"];	
-        $description = $row["description"];
-	$managerId = $row["managerId"];
-	$budget = $row["budget"];
-        $creationDate = $row["creationDate"];
-        $startDate = $row["startDate"];
-        $dueDate = $row["dueDate"];
-	echo "<tr>";	
-        echo "<td>$id</td>";	
-        echo "<td>$name</td>";	
-        echo "<td>$status</td>";
-        echo "<td>$description</td>";	
-        echo "<td>$managerId</td>";	
-        echo "<td>$budget</td>";
-        echo "<td>$creationDate</td>";        
-        echo "<td>$startDate</td>";
-        echo "<td>$dueDate</td>";	
-        echo "</tr>";
-  }
-  //display Search Activities Result
-  echo "<table border=\"1\">";
-echo "  <h1> Search results for activities: </h1>";
-echo "  <tr>";
-echo "   <th>id</th>";
-echo "   <th>type</th>";
-echo "   <th>name</th>";
-echo "	 <th>status</th>";
-echo "	 <th>projectId</th>";
-echo "	 <th>assigneeId</th>";
-echo "	 <th>description</th>";
-echo "	 <th>expectedHours</th>";
-echo "	 <th>actualHours</th>";
-echo "	 <th>creationDate</th>";
-echo "  </tr>  ";
-  $query2 = "select * from activities where name like '%$text%' or description like '%$text%' order by id limit 100; ";
-  //  execute the query and display activities in results
-  $result2= mysqli_query($connection ,$query2);
-  if(!$result2){
-    include ('error.html');
-	die ("Could not query the database: <br />". mysql_error());
-  } 
+            
   while($row = mysqli_fetch_assoc($result2)){ //identifying columns by name
         $id = $row["id"]; 
         $type = $row["type"]; 
