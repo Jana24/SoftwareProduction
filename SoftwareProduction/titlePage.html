@@ -17,12 +17,12 @@ and open the template in the editor.
 <body>
 <div id ="main">
   <div id="formForm" style="margin-top:20%;">
-    <form name="formName" id ="myName">
+    <form method="post" action="main.php" name="formName" id ="myName">
       Name: <br>
-	  <input type="text" name="name"> <br><br>
+	  <input type="text" id="usr_name" name="usr_name"> <br><br>
 	  Password: <br>
       <input type="text" name="password"> <br><br>
-	  <input type = "button" value="Login">
+	  <input type = "submit" value="Login">
     </form>
   </div>
 </div>

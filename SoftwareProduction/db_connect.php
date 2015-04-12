@@ -7,12 +7,14 @@
 
 // include login information
   include('private/db_login.php');
+ 
   // echo "host is $db_host  user is $db_username  password is  selected  database is $db_name";
   // connect to database
   $connection = mysqli_connect($db_host, $db_username, $db_password, $db_name);
+
   //echo $connection;
   if (!$connection){
-    die ("Could not connect to database: <br />". mysql_error());
+    die ("Could not connect to database: <br />" . mysql_error());
   }
   
   // select the database
