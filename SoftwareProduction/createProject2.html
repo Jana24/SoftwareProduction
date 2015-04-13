@@ -8,6 +8,36 @@
         <title>Create Project 2</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function run() {
+                document.getElementById("user_name").innerHTML = document.getElementById("listbox1CP2").value;
+            };
+            function onClickAdd(){
+                var select = document.getElementById("listbox1CP2");
+                var opt = document.createElement("option");
+                var user= document.getElementById("listbox2CP2");
+                opt.value = user.options[user.selectedIndex].value;
+                opt.innerHTML = user.options[user.selectedIndex].innerHTML;
+                select.appendChild(opt);
+                
+                var sec = document.getElementById("listbox2CP2");
+                sec.remove(sec.selectedIndex);
+            }
+            
+            function onClickRemove(){
+                var select = document.getElementById("listbox2CP2");
+                var opt = document.createElement("option");
+                var user= document.getElementById("listbox1CP2");
+                opt.value = user.options[user.selectedIndex].value;
+                opt.innerHTML = user.options[user.selectedIndex].innerHTML;
+                select.appendChild(opt);
+                
+                var sec = document.getElementById("listbox1CP2");
+                sec.remove(sec.selectedIndex);
+            }
+            
+
+        </script>
     </head>
   <style type="text/css">
     body {
@@ -69,7 +99,7 @@
   
   </style>
   <body>
-    <div id ="main">
+    
         <button id="homeButton">Home</button>
         <a id="searchForm">
             <input type="text"  value="Search" id="search">
@@ -81,58 +111,50 @@
             <button id="profileButton">Profile</button>
 	</div> 
 
-
+        
 	<div id="involvedPersonsCP2">	
             <p id="added">Added</p>
             <h4>Involved People</h4>
-            <SELECT size="10" id ="listbox1CP2" name="persons" style = "width:500px">
-                <OPTION Value="Jana">Jana</OPTION>
-                <OPTION Value="user">User</OPTION>
-                <OPTION Value="user">User</OPTION>
-                <OPTION Value="user">User</OPTION>
-                <OPTION Value="user">User</OPTION>
-
-            </SELECT>
-	  
+            <SELECT size="10" id ="listbox1CP2" name="persons" style = "width:500px" onchange="run()">
+            </select>
+	 
             <SELECT size="10" style = "width:100px" id="listbox2CP2">
-                <OPTION Value="User">User</OPTION>
-                <OPTION Value="User">User</OPTION>
-                <OPTION Value="User">User</OPTION>
-                <OPTION Value="User">User</OPTION>
-                <OPTION Value="User">User</OPTION>
-                <OPTION Value="User">User</OPTION>
-                <OPTION Value="User">User</OPTION>
-                <OPTION Value="User">User</OPTION>
+                <?php
+                    include('db_connect.php');  
+                    $query_opt = "SELECT DISTINCT name FROM users";
+                    $res_opt = mysqli_query($connection, $query_opt);
+
+                    while($throw_re = mysqli_fetch_array($res_opt)) {
+                        echo '<option   value= "'.$throw_re[0].'">'.$throw_re[0].'</option>';
+                    }
+                ?>
             </SELECT>
             <div id="plusButtons">
-                <div id="div1" style="width:30px;margin-left:20px;	border:solid 1px grey;	padding-left:4px;margin-top:20px;height:30px;float:left;background-color:#D0D0D0;">
-                    <-
-                </div>
+                <input type ="button" onclick="onClickAdd()" id="div1" value ="<-">
+                  
                 <br><br><br><br>
-                <div id="div2" style="width:30px;margin-left:20px;	border:solid 1px grey;	padding-left:4px;height:30px;float:left;background-color:#D0D0D0;">
-                    ->
-                </div>
+                <input type ="button" onclick="onClickRemove()" id="div2" value ="->">
             </div>
 	</div> <!--End involvedPersonsCP2-->
 	
-
-	
 	<div id="usersRolesCP2">
-            <p>Role for Jana</p>
+            <p>Role for <p id="user_name"></p></p>
             <SELECT size="10" name="role_for_person" style = "width:700px">
                 <OPTION Value="Role">Manager</OPTION>
-                <OPTION Value="Role">Role</OPTION>
-                <OPTION Value="Role">Role</OPTION>
-                <OPTION Value="Role">Role</OPTION>
-                <OPTION Value="Role">Role</OPTION>
-            </SELECT>	
+                <OPTION Value="Role">Developer</OPTION>
+                <OPTION Value="Role">Tester</OPTION>
+            </SELECT>
+            <form method="post" action="checkUser.php">
+             <input type="submit" name="button" value="Add" id="add_button" />
+             </form> 
 	</div><!--End usersRolesCP2-->
         
         <div id="bottomButtons">
-            <input type="submit" name="submit" value="Next"/>
+            <input type="submit" name="submit" value="Next" id="submit"/>
             
         </div>  
-    </div> <!--End Main-->
+        
+     <!--End Main-->
   </body>
 
 </html> 

@@ -8,23 +8,6 @@
 
 // include login information
 include('db_connect.php');  
-// echo "host is $db_host  user is $db_username  password is  selected  database is $db_name";
-// connect to database
-$connection = mysqli_connect($db_host, $db_username, $db_password, $db_name);
-//echo $connection;
-if (!$connection){
-  die ("Could not connect to database: <br />". mysql_error());
-}
-
-// select the database
-$db_select=  mysqli_select_db($connection, $db_name);
-
-//echo " db selected".$db_select;
-
-if (!$db_select){
-    die ("could not select the database: <br />". mysql_error());
-} 
-
 
 $projName  = $_POST['proj_name'];
 $description = $_POST['proj_description'];
@@ -62,7 +45,12 @@ $query .= ")";
 $result = mysqli_query($connection, $query);
 if($result){
     echo "SUCCESS!";
-    header("Location: createProject2.html" ); 
+    $query = "SELECT MAX(id) as id FROM projects limit 1";
+    $res = mysqli_query($connection, $query);
+    $var_value = mysqli_fetch_object($res);
+    session_start();
+    $_SESSION['currentProjetcID'] = $var_value->id;
+    header("Location: insert_users_to_project.php" ); 
     exit;    
 }
 else{
