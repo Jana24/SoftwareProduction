@@ -69,7 +69,7 @@ echo '		  </tbody> ';
 echo '	    </table> ';
 echo '		<br> ';
 echo '	    <div class="bottomButtonsMain"> ';
-echo '	      <FORM METHOD="LINK" ACTION="createProject1.php">';
+echo '	      <FORM METHOD="LINK" ACTION="createProject1.html">';
 echo '          <INPUT TYPE="submit" VALUE="Create">';
 echo '          </FORM>';
 echo '	      <button id="deleteView" onclick="deleteRow()">Delete  </button> ';
@@ -130,13 +130,33 @@ echo ' </html>  ';
 
 //Now create query related to main page
 session_start();
+
+//TODO: delte this
+$_SESSION['current_user'] = "Juan Wang";
 $user = $_SESSION['current_user'];
-print_r("Hello " .$user);
+
+print_r("Hello " .$user);/*
 $query2 = "Select p.id, p.name from projects natural join users natural join user project where p.name like '$user'; ";
 //  execute the query and display activities in results
 $result2= mysqli_query($connection ,$query2);
+*/
 
+$query2 = "select id from users where name ='$user';";
 
+$result2 = mysqli_query($connection, $query2);
+
+$var_value = mysqli_fetch_object($result2);
+print_r($var_value->id);
+
+$query2 = "select projectid from user_project where userId = '$var_value->id';";
+$result2 = mysqli_query($connection, $query2);
+$var_value = mysqli_fetch_object($result2);
+print_r($var_value->projectid);
+
+$query2 = "select name from projects where id = '$var_value->projectid';";
+$result2 = mysqli_query($connection, $query2);
+$var_value = mysqli_fetch_object($result2);
+print_r($var_value->name);
 
 
 

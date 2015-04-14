@@ -44,10 +44,28 @@ session_start();
 $_SESSION['current_user'] = $user;
 print_r($_SESSION['current_user']);
 
-//$sql="SELECT * FROM users WHERE username='$user' and password='$password'";
+$sql="SELECT * FROM users WHERE name='$user'";
+$result=mysqli_query($connection, $sql);
+if(mysqli_num_rows($result)!= 0){
+    $sql="SELECT * FROM users WHERE name='$user' and password='$password'";
+    $result=mysqli_query($connection, $sql);
+    if(mysqli_num_rows($result)!= 0){
+        header("Location: main.php");
+    }
+    else{
+        //wrong pw
+         print("Wrong Username or Password");
+        header("Location: titlePage.html");  
+      
+    }
+    
+}
+else{
+ print("Wrong Username or Password"); 
+    header("Location: titlePage.html");
+     
+}
 
-
-header("Location: main.php");
 /*
  
  */
