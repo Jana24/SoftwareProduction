@@ -6,8 +6,8 @@
  */
 
 // include top header and database connection
-include 'topsearch.php';
-
+include 'db_connect.php';
+/*
  echo ' <html>'; 
  echo '   <head>'; 
  echo '       <title>Title Page</title>'; 
@@ -31,4 +31,23 @@ echo '    </form>';
 echo '  </div>'; 
 echo '</div>'; 
 echo '</body>'; 
-         echo '</html>';
+echo '</html>';*/
+
+$user = $_POST['usr_name']; 
+$password = $_POST['password']; 
+
+print_r($password);
+print_r($user);
+
+session_start();
+
+$_SESSION['current_user'] = $user;
+print_r($_SESSION['current_user']);
+
+//$sql="SELECT * FROM users WHERE username='$user' and password='$password'";
+
+
+header("Location: main.php");
+/*
+ 
+ */

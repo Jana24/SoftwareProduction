@@ -69,7 +69,7 @@ echo '		  </tbody> ';
 echo '	    </table> ';
 echo '		<br> ';
 echo '	    <div class="bottomButtonsMain"> ';
-echo '	      <FORM METHOD="LINK" ACTION="createProject1.html">';
+echo '	      <FORM METHOD="LINK" ACTION="createProject1.php">';
 echo '          <INPUT TYPE="submit" VALUE="Create">';
 echo '          </FORM>';
 echo '	      <button id="deleteView" onclick="deleteRow()">Delete  </button> ';
@@ -129,12 +129,15 @@ echo '  </body> ';
 echo ' </html>  ';
 
 //Now create query related to main page
-$query2 = "Select p.id, p.name from projects natural join users natural join user project where p.name like '%$user%'; ";
+session_start();
+$user = $_SESSION['current_user'];
+print_r("Hello " .$user);
+$query2 = "Select p.id, p.name from projects natural join users natural join user project where p.name like '$user'; ";
 //  execute the query and display activities in results
 $result2= mysqli_query($connection ,$query2);
 
-$username = $_POST['usr_name'];
-print_r("Hello" .$username);
+
+
 
 
 /*if(!$result2){
