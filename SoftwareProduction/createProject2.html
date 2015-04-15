@@ -49,11 +49,9 @@
         </script>
        
     </head>
-  <style type="text/css">
-
-   
+  <style type="text/css">  
     #involvedPersonsCP2{
-        margin: 100px 200px;  
+        margin: 150px 200px;  
     }
     
     #user_in_project{
@@ -65,16 +63,9 @@
         margin-right:120px;
     }	
 	
-    #bottomButtons{
-        margin: 100px 800px;  
-        float: left;
+    select {
+    width:200px;
     }
-	
-
-    #usersRolesCP2{
-        margin-left: 200px;
-	float:left;
-    }	
 	
     table,tr,th,td{
         border: 1px solid black;
@@ -90,55 +81,73 @@
     th {
         background-color:#D0D0D0 ;
     }
+    
+    body {
+    font-family: arial, "Comic Sans MS", calibri, sans-serif;
+    }
 	
   
   </style>
-  <body>
-    
-       
+  <body>       
+    <div id="involvedPersonsCP2">	
+      <h4 style="padding-left:20px;">Project Personnel</h4>
+            <table style="width:100%">
+              <th align="left">Name </th>
+              <th align = "left">Role </th>  
+              <tr>
+                    <td>1</td>
+                    <td width="65%">
+                      <select name="category" id="category">
+                        <option value="Please select">Please select role</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Admin">Administrator</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Tester">Tester</option>
+                      </select>
+               </td> 
+              </tr>
+              <tr>
+                    <td>2</td>
+                    <td>
+                      <select name="category" id="category" width="100pt">
+                        <option value="Please select">Please select role</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Admin">Administrator</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Tester">Tester</option>
+                      </select> 
+                      </td>
+              </tr>
+              <tr>
+                    <td>3</td>
+                    <td>
+                      <select name="category" id="category">
+                        <option value="Please select">Please select role</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Admin">Administrator</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Tester">Tester</option>
+                      </select></td>  
+              </tr>
+              <tr>
+                    <td>4</td>
+                    <td>
+                      <select name="category" id="category">
+                        <option value="Please select">Please select role</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Admin">Administrator</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Tester">Tester</option>
+                      </select></td>  
+              </tr>
+            </table>
+			  <br><br><br>
 
-        
-	<div id="involvedPersonsCP2">	
-            <p id="added">Added</p>
-            <h4>Involved People</h4>
-            <SELECT size="10" id ="user_in_project" class="listbox1CP2" style = "width:500px" onchange="run()">
-            </select>
-	 
-            <SELECT size="10" style = "width:100px" id="user_in_database" onchange="checkRole()">
-                <?php
-                    include('db_connect.php');  
-                    $query_opt = "SELECT DISTINCT name FROM users";
-                    $res_opt = mysqli_query($connection, $query_opt);
-
-                    while($throw_re = mysqli_fetch_array($res_opt)) {
-                        echo '<option   value= "'.$throw_re[0].'">'.$throw_re[0].'</option>';
-                    }
-                ?>
-            </SELECT>
-            <div id="plusButtons">
-                <input type ="button" onclick="onClickAdd()" id="div1" value ="<-">
-                  
-                <br><br><br><br>
-                <input type ="button" onclick="onClickRemove()" id="div2" value ="->">
-            </div>
-	</div> <!--End involvedPersonsCP2-->
-	
-	<div id="usersRolesCP2">
-            <p>Role for <p id="user_name"></p></p>
-        <SELECT size="10" name="role_for_person" style = "width:700px" onchange="setRole()">
-                <OPTION Value="Role">Manager</OPTION>
-                <OPTION Value="Role">Developer</OPTION>
-                <OPTION Value="Role">Tester</OPTION>
-            </SELECT>
-            <form method="post" action="checkUser.php">
-             <input type="submit" name="button" value="Add" id="add_button" />
-             </form> 
-	</div><!--End usersRolesCP2-->
-        
-        <div id="bottomButtons">
-            <input type="submit" name="submit" value="Next" id="submit"/>
-            
-        </div>  
+        <button id="submit" style="margin-left:20px;">Submit</button>
+        <div id="submitButton" 
+            style="width:62px;margin-left:20px;	border:solid 1px grey; border-radius:5px;font-weight:bold; 
+            text-align:center;padding-top:5px;height:26px;float:left;background-color:#D0D0D0;">Submit</div>
+	</div>
         
      <!--End Main-->
   </body>
