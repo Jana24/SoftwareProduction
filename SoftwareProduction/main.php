@@ -7,27 +7,23 @@
 
 // include top header and database connection
 include 'topsearch.php';
-  // echo "host is $db_host  user is $db_username  password is  selected  database is $db_name";
-  // connect to database
-  $connection = mysqli_connect($db_host, $db_username, $db_password, $db_name);
-  //echo $connection;
-  if (!$connection){
-    die ("Could not connect to database: <br />". mysql_error());
-  }
-  
-  // select the database
-  $db_select=  mysqli_select_db($connection, $db_name);
-  
-  //echo " db selected".$db_select;
-  
-  if (!$db_select){
-    die ("could not select the database: <br />". mysql_error());
-  } 
+
+  //Now create query related to main page
+session_start();
+
+//TODO: delete folowing line
+$_SESSION['current_user'] = "Juan Wang";
+$user = $_SESSION['current_user'];
+
+
+
+
 echo '  <html>';
 echo '      <head>';
 echo '          <title>Main</title>';
 echo '          <meta charset="UTF-8">';
 echo '          <meta name="viewport" content="width=device-width, initial-scale=1.0">';
+
 echo '      </head>';
 echo '    <style type="text/css">';
 echo '      @import url("text.css");';
@@ -50,6 +46,14 @@ echo '      } ';
 echo '     th { ';
 echo '      background-color:#D0D0D0 ;  ';
 echo '      } ';
+echo '      tr:hover { 
+                background: grey; 
+             }
+             td a { 
+                display: block; 
+                border: 1px solid black;
+                padding: 16px; 
+             }';
    
 echo '    </style> ';
 echo '    <body> ';
@@ -57,13 +61,24 @@ echo '    <body> ';
 echo '	  <div id ="myProjectsMain"> '; 
 echo '	    <h3>  My Projects </h3> ';
 echo '	     <!-- create project ID for the purpose of allowing javascript functions to work --> ';
-echo '	    <table id="projectsTableMain"> ';
-echo '		<!-- create table 1 --> ';
+echo '	    <table id="projectsTableMain" > ';
+echo '		<!-- create table 1 --> ';     
 echo '	      <tbody> ';
-echo '	        <tr> ';
-echo '            <td width="100px" align="left" style="background-color:#D0D0D0";>Name  </th> ';
-echo '            <td width="765px" align="left" style="background-color:#D0D0D0";>Status  </th>';
+echo '	        <tr> ';                  
+echo '          <td width="100px" align="left" style="background-color:#D0D0D0";>Name  </th> ';
+echo '          <td width="765px" align="left" style="background-color:#D0D0D0";>Status  </th>';
 echo '		</tr> ';
+            $query2 = "select p.name, p.status from projects p, user_project up, users u where p.id=up.projectid and up.userId=u.id and u.name='$user';";
+            $result2 = mysqli_query($connection, $query2);
+            while($obj=mysqli_fetch_object($result2))
+            {
+                $name = $obj->name; 
+                $status = $obj->status;
+echo '	        <tr onclick="window.document.location=""> ';        
+echo '              <a href="#"><td>'.$name.'</td>';
+echo '              <td>'.$status.'</td></a>';
+echo '		</tr> ';
+            }
 echo '		  </tbody> ';
 
 echo '	    </table> ';
@@ -128,35 +143,7 @@ echo '  </body> ';
 
 echo ' </html>  ';
 
-//Now create query related to main page
-session_start();
 
-//TODO: delte this
-$_SESSION['current_user'] = "Juan Wang";
-$user = $_SESSION['current_user'];
-
-print_r("Hello " .$user);/*
-$query2 = "Select p.id, p.name from projects natural join users natural join user project where p.name like '$user'; ";
-//  execute the query and display activities in results
-$result2= mysqli_query($connection ,$query2);
-*/
-
-$query2 = "select id from users where name ='$user';";
-
-$result2 = mysqli_query($connection, $query2);
-
-$var_value = mysqli_fetch_object($result2);
-print_r($var_value->id);
-
-$query2 = "select projectid from user_project where userId = '$var_value->id';";
-$result2 = mysqli_query($connection, $query2);
-$var_value = mysqli_fetch_object($result2);
-print_r($var_value->projectid);
-
-$query2 = "select name from projects where id = '$var_value->projectid';";
-$result2 = mysqli_query($connection, $query2);
-$var_value = mysqli_fetch_object($result2);
-print_r($var_value->name);
 
 
 
