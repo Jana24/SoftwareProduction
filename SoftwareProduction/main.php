@@ -12,7 +12,7 @@ include 'topsearch.php';
 session_start();
 
 //TODO: delete folowing line
-$_SESSION['current_user'] = "Juan Wang";
+//$_SESSION['current_user'] = "Juan Wang";
 $user = $_SESSION['current_user'];
 
 

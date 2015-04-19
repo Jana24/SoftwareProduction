@@ -1,4 +1,4 @@
-
+﻿
 <?php
 /*
  *  Created on : 12-Mar-2015, 10:14:00
@@ -26,7 +26,7 @@ echo "</tr>";
 
 while ($row = mysqli_fetch_array($res_opt)) {
     echo "<tr>";
-    echo "<td>" . $row['name'] ."</td>";
+    echo "<td>" . $row['name'] . $row['id']. "</td>";
     echo "<td width='65%'>";
     echo "    <select name='". $row['id'] ."' id='category".$row['id']."'>";
     echo "      <option value='None'>None</option>";
@@ -52,5 +52,3 @@ echo " </form>";
 echo "  </body>";
 
 echo "</html>";
-    
-
