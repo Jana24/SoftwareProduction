@@ -44,13 +44,13 @@ $query .= "where id = $id";
 $result = mysqli_query($connection, $query);
 if($result){
     echo "SUCCESS!";
-    header("Location: insert_users_to_project.php" ); 
+    header("Location: update_users_to_project.php" ); 
     exit;    
 }
 else{
     die("Database query failed. " .mysql_error($connection));
     echo "Something went wrong!";
-    header("Location: createProject1.html"); 
+    header("Location: editProject1.html"); 
 }
 
 ?> 
