@@ -17,9 +17,8 @@ $start_date = $_POST['startDate'];
 $end_date = $_POST['endDate']; 
 session_start();
 //$query = "SELECT * FROM projects";
-$id = $_SESSION['currentProjetID'];
+$id = $_SESSION['currentProjectID'];
 
-$id =1;
 
 $dateFormated = explode('/', $start_date);
 $sdate = $dateFormated[2].'-'.$dateFormated[1].'-'.$dateFormated[0];

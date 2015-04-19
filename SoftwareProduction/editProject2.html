@@ -9,44 +9,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <script>
-            var user_arr = [];
-            var roles_arr = [];
-            function run() {
-                document.getElementById("user_name").innerHTML = document.getElementById("user_in_project").value;
-            };
-            function onClickAdd(){
-                var select = document.getElementById("user_in_project");
-                var opt = document.createElement("option");
-                var user= document.getElementById("user_in_database");
-                opt.value = user.options[user.selectedIndex].value;
-                opt.innerHTML = user.options[user.selectedIndex].innerHTML;
-                select.appendChild(opt);
-                
-                var sec = document.getElementById("user_in_database");
-                sec.remove(sec.selectedIndex);
-            }
-            
-            function onClickRemove(){
-                var select = document.getElementById("user_in_database");
-                var opt = document.createElement("option");
-                var user= document.getElementById("user_in_project");
-                opt.value = user.options[user.selectedIndex].value;
-                opt.innerHTML = user.options[user.selectedIndex].innerHTML;
-                select.appendChild(opt);
-                
-                var sec = document.getElementById("user_in_project");
-                sec.remove(sec.selectedIndex);
-            }
-            function checkRole(){
-                
-            }
-            
-            function setRole(){
-                
-            }
-
-        </script>
        
     </head>
   <style type="text/css">  
@@ -89,7 +51,7 @@
   
   </style>
   <body>    
-    <form method="post" action="project_user.php">
+    <form method="post" action="update_project_user.php">
     <div id="involvedPersonsCP2">	
       <h4 style="padding-left:20px;">Project Personnel</h4>
             
