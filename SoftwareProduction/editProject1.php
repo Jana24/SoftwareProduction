@@ -67,7 +67,7 @@ echo '
 echo '
 
     Start date: 
-    <input type="date" id ="startDate" name="startDate" size="40" value="'.$sdate.'">
+    <input type="text" id ="startDate" name="startDate" size="40" value="'.$sdate.'">
     <br><br><br><br>	
 
     End date: 
