@@ -1,3 +1,9 @@
+<style type="text/css">
+    .selectedTag{
+        background: #a0a0a0;
+    }
+ </style>
+
 <?php
 
 /* 
@@ -23,11 +29,13 @@ echo '      <head>';
 echo '          <title>Main</title>';
 echo '          <meta charset="UTF-8">';
 echo '          <meta name="viewport" content="width=device-width, initial-scale=1.0">';
+echo '               <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>';
 echo '      <script>$("tr").click( function() {
             window.location = $(this).find("a").attr("href");
             }).hover( function() {
                 $(this).toggleClass("hover");
             });
+     
             </script>';
 echo '      </head>';
 echo '    <style type="text/css">';
@@ -73,6 +81,7 @@ echo '    <body> ';
 echo '	  <div id ="myProjectsMain"> '; 
 echo '	    <h3>  My Projects </h3> ';
 echo '	     <!-- create project ID for the purpose of allowing javascript functions to work --> ';
+echo '<input type="hidden" id="hiddenId">';
 echo '	    <table id="projectsTableMain" > ';
 echo '		<!-- create table 1 --> ';     
 echo '	      <tbody> ';
@@ -87,9 +96,11 @@ echo '		</tr> ';
                 $name = $obj->name; 
                 $status = $obj->status;
                 $p_id = $obj->id;
-echo '	        <tr id='.$p_id.'"> ';        
-echo '              <td><a href="editProject1.php?projId='.$p_id.'">'.$name.'</a></td>';
-echo '              <td><a href="editProject1.php?projId='.$p_id.'">'.$status.'</a></td>';
+echo '	        <tr id="'.$p_id.'"> ';        
+//echo '              <td><a href="editProject1.php?projId='.$p_id.'">'.$name.'</a></td>';
+//echo '              <td><a href="editProject1.php?projId='.$p_id.'">'.$status.'</a></td>';
+echo '              <td><a href="#" onclick="toggleColor('.$p_id.');">'.$name.'</a></td>';
+echo '              <td><a href="#" onclick="toggleColor('.$p_id.');">'.$status.'</a></td>';
 echo '		</tr> ';
             }
 echo '		  </tbody> ';
@@ -97,12 +108,10 @@ echo '		  </tbody> ';
 echo '	    </table> ';
 echo '		<br> ';
 echo '	    <div class="bottomButtonsMain"> ';
-echo '	      <FORM METHOD="LINK" ACTION="createProject1.html">';
-echo '          <INPUT TYPE="submit" VALUE="Create">';
-echo '          </FORM>';
-echo '	      <button id="deleteView" onclick="deleteRow()">Delete  </button> ';
+echo '        <button id="create" onclick=actionProject(2)>Create</button>';
+echo '	      <button id="deleteView" onclick="actionProject(1)">Delete  </button> ';
 echo '	      <button id="projectsView" onclick="view()">View  </button> ';
-echo '	      <button id="editsView" onclick="readRow()">Edits  </button> ';
+echo '	      <button id="editsView" onclick="actionProject(3)">Edits  </button> ';
 echo '	    </div> ';
 echo '	  </div> ';
 	  
@@ -122,21 +131,21 @@ echo '                </tr> ';
 echo '	      </thead> ';
 echo '		  <tbody> ';
 echo '		    <tr> ';
-echo '                <td>Content 1 </td> ';
+echo '                <td>Juan Wang</td> ';
 echo '                <td>Project 2  </td> ';
 echo '                <td>15.02.2015</td> ';
 echo '                <td>2  </td> ';
 echo '                <td>pending</td> ';
 echo '              </tr> ';
 echo '		    <tr> ';
-echo '                <td>Content 2</td> ';
+echo '                <td>Daniel McKean</td> ';
 echo '                <td>Project 5</td> ';
 echo '                <td>18.02.2015</td> ';
 echo '                <td>5  </td> ';
 echo '                <td>Not started</td> ';
 echo '              </tr> ';
 echo '              <tr> ';
-echo '		      <td>Content 3</td> ';
+echo '		      <td>Jana Willmann</td> ';
 echo '                <td>Project 2</td>';
 echo '                <td>21.02.2015</td> ';
 echo '                <td>9  </td> ';
@@ -166,3 +175,30 @@ echo ' </html>  ';
 } */
 
 ?> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+   function toggleColor(id){
+       $('#'+id).addClass('selectedTag');
+       $('#hiddenId').val(id);
+   }
+   function actionProject(token){
+       var id = $('#hiddenId').val();
+       if(token==3){
+           window.open("editProject1.php?projId="+id,"_self");
+       }
+       else if(token == 2){
+           window.open("createProject1.html","_self");
+       }
+       else if(token == 1){
+           //delete
+           var x = confirm("Are you sure you want to delete this project?");
+           if(x){
+               //delete
+               window.open("deleteProject.php?projId="+id,"_self");
+           }else{
+               //close poup
+               
+           }
+       }
+   }
+</script>
