@@ -8,8 +8,8 @@ body {
     }
    
     #main {
-    border: solid 1px black;
-    border-height:600px;
+    /*border: solid 1px black;
+    border-height:600px;*/
     width:1200px;
     height:800px;
     }
