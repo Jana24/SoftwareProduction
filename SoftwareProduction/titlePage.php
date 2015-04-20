@@ -25,7 +25,7 @@ echo '<div id ="main">';
   echo '    Name: <br>'; 
 echo '	  <input type="text" id="usr_name" name="usr_name"> <br><br>'; 
 echo '	  Password: <br>'; 
- echo '     <input type="text" name="password"> <br><br>'; 
+ echo '     <input type="password" name="password"> <br><br>'; 
 echo '	  <input type = "submit" value="Login">'; 
 echo '    </form>'; 
 echo '  </div>'; 

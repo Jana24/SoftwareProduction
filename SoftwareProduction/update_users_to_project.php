@@ -73,9 +73,7 @@ echo "</table>";
 echo "	  <br><br><br>";
 
 echo "        <button id='submit' style='margin-left:20px;' >Submit</button>";
-echo "       <div id='submitButton' ";
-echo "            style='width:62px;margin-left:20px;	border:solid 1px grey; border-radius:5px;font-weight:bold; 
-            text-align:center;padding-top:5px;height:26px;float:left;background-color:#D0D0D0;'>Submit</div>
+echo "       <div id='submitButton' 
 	</div>";
 echo " </form>";        
 

@@ -28,12 +28,12 @@ print_r("Status: " .$status);
 if($status == "not_started"){
     print_r("1Status: " .$status);
     $database_status = "not started";
-}else if($status == "ungoing"){
+}else if($status == "undergoing"){
     print_r("2Status: " .$status);
     $database_status = "undergoing";
 }else if($status == "completed"){
     print_r("3Status: " .$status);
-    $database_status = "finished";
+    $database_status = "completed";
 }
 
 $query = "INSERT INTO projects(";

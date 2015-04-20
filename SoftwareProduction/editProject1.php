@@ -39,18 +39,18 @@ echo 'Description: <br><br>
     if($status == "not started"){
         echo '
         <option id="myStatus" value="not_started" selected>Not Started</option>
-        <option id="myStatus" value="ungoing">Ungoing</option>
-        <option id="myStatus" value="finished">Finished</option>';
+        <option id="myStatus" value="undergoing">Undergoing</option>
+        <option id="myStatus" value="completed">Completed</option>';
     }else if($status == "undergoing"){
         echo '
         <option id="myStatus" value="not_started" selected>Not Started</option>
-        <option id="myStatus" value="ungoing" selected>Ungoing</option>
-        <option id="myStatus" value="finished">Finished</option>';
-    }else if($status == "finished"){
+        <option id="myStatus" value="undergoing" selected>Undergoing</option>
+        <option id="myStatus" value="completed">Completed</option>';
+    }else if($status == "completed"){
         echo '
         <option id="myStatus" value="not_started" selected>Not Started</option>
-        <option id="myStatus" value="ungoing">Ungoing</option>
-        <option id="myStatus" value="finished" selected>Finished</option>';
+        <option id="myStatus" value="undergoing">Undergoing</option>
+        <option id="myStatus" value="completed" selected>Completed</option>';
     }
 echo '
     </select>
