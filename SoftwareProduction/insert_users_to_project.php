@@ -26,7 +26,7 @@ echo "</tr>";
 
 while ($row = mysqli_fetch_array($res_opt)) {
     echo "<tr>";
-    echo "<td>" . $row['name'] . $row['id']. "</td>";
+    echo "<td>" . $row['name'] .  "</td>";
     echo "<td width='65%'>";
     echo "    <select name='". $row['id'] ."' id='category".$row['id']."'>";
     echo "      <option value='None'>None</option>";
@@ -42,10 +42,7 @@ echo "</table>";
 
 echo "	  <br><br><br>";
 
-echo "        <button id='submit' style='margin-left:20px;' >Submit</button>";
-echo "       <div id='submitButton' ";
-echo "            style='width:62px;margin-left:20px;	border:solid 1px grey; border-radius:5px;font-weight:bold; 
-            text-align:center;padding-top:5px;height:26px;float:left;background-color:#D0D0D0;'>Submit</div>
+echo "        <button id='submit' style='margin-left:20px;' >Submit</button>
 	</div>";
 echo " </form>";        
 

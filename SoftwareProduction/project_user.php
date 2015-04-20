@@ -10,7 +10,7 @@ session_start();
 //print_r($_SESSION['currentProjetcID']);
 $cur_ID_proj = $_SESSION['currentProjetcID'];
 
-$cur_ID_proj = 1;
+//$cur_ID_proj = 1;
 
 $persons = $_POST["persons"]; 
 $role_for_person = $_POST["role_for_person"]; 
@@ -24,10 +24,6 @@ if(isset($_POST))
             //Found a user that has a role get the ID
             $user_id = $inputName;
             $role = '';
-            //write to database
-            print_r("User_ID ".$user_id);
-            print_r("Project_ID ".$cur_ID_proj);
-            print_r("Role ".$inputValue);
             if($inputValue="Manager"){
                 $role = "project manager";
             }
@@ -47,7 +43,6 @@ if(isset($_POST))
 
             
             $result = mysqli_query($connection, $query);
-            
         }
     
     }
