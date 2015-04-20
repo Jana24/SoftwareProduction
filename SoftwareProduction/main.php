@@ -57,8 +57,10 @@ echo '      tr:hover {
              }
              td a { 
                 display: block; 
+                color:black;
                 border: 1px solid black;
-                padding: 16px; 
+                padding: 6px; 
+                text-decoration:none;
              }
              #projectsTableMain tr td {
                 padding-left: 0;
