@@ -16,6 +16,10 @@ echo '        <meta name="viewport" content="width=device-width, initial-scale=1
     
 echo '  <style type="text/css">'; 
 echo '    @import url("searchcss.css");'; 
+echo '       .searchForm {
+            margin-left:20px;
+            
+}';
 echo '  </style>'; 
   
 echo '  <script>'; 

@@ -19,6 +19,18 @@ and open the template in the editor.
     #searchForm {
     margin-left:400px;
     }
+    
+    #homeButton{
+     margin-right:350px;
+    }
+    
+    .searchForm{
+ 
+    }
+    
+    .advancedSearchForm{
+     
+    }
    
     #involvedPersonsCP2{
     margin: 100px 200px;  
