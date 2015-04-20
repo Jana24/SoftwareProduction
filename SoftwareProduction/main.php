@@ -45,11 +45,12 @@ echo '      font-size:14px; ';
 echo '      } ';
    
 echo '      h3 { ';
-echo '      padding-left:15px;  '; 
+echo '      padding-left:20px;  '; 
 echo '      } ';
    
 echo '     th { ';
 echo '      background-color:#D0D0D0 ;  ';
+echo '      padding:6px;';
 echo '      } ';
 echo '      tr:hover { 
                 cursor: pointer;
@@ -58,7 +59,6 @@ echo '      tr:hover {
              td a { 
                 display: block; 
                 color:black;
-                border: 1px solid black;
                 padding: 6px; 
                 text-decoration:none;
              }
@@ -77,8 +77,8 @@ echo '	    <table id="projectsTableMain" > ';
 echo '		<!-- create table 1 --> ';     
 echo '	      <tbody> ';
 echo '	        <tr> ';                  
-echo '          <td width="100px" align="left" style="background-color:#D0D0D0";>Name  </th> ';
-echo '          <td width="765px" align="left" style="background-color:#D0D0D0";>Status  </th>';
+echo '          <td width="100px" align="left" style="background-color:#D0D0D0; padding:6px";>Name  </th> ';
+echo '          <td width="780px" align="left" style="background-color:#D0D0D0; padding:6px;";>Status  </th>';
 echo '		</tr> ';
             $query2 = "select p.name, p.status, p.id from projects p, user_project up, users u where p.id=up.projectid and up.userId=u.id and u.name='$user';";
             $result2 = mysqli_query($connection, $query2);

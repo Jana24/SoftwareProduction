@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_array($res_opt)) {
     echo "<td>" . $row['name'] . "</td>";
     echo "<td width='65%'>";
             $id = $row['id'];
-            session_start();
+            //session_start();
             $cur_ID_proj = $_SESSION['currentProjectID'];
 
             $query = "select role from user_project where userId='$id' and projectId='$cur_ID_proj'";
