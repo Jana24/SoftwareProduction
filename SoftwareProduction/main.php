@@ -23,7 +23,12 @@ echo '      <head>';
 echo '          <title>Main</title>';
 echo '          <meta charset="UTF-8">';
 echo '          <meta name="viewport" content="width=device-width, initial-scale=1.0">';
-
+echo '      <script>$("tr").click( function() {
+            window.location = $(this).find("a").attr("href");
+            }).hover( function() {
+                $(this).toggleClass("hover");
+            });
+            </script>';
 echo '      </head>';
 echo '    <style type="text/css">';
 echo '      @import url("text.css");';
@@ -47,13 +52,18 @@ echo '     th { ';
 echo '      background-color:#D0D0D0 ;  ';
 echo '      } ';
 echo '      tr:hover { 
+                cursor: pointer;
                 background: grey; 
              }
              td a { 
                 display: block; 
                 border: 1px solid black;
                 padding: 16px; 
-             }';
+             }
+             #projectsTableMain tr td {
+                padding-left: 0;
+                padding-right: 0;
+            }';
    
 echo '    </style> ';
 echo '    <body> ';
@@ -68,15 +78,16 @@ echo '	        <tr> ';
 echo '          <td width="100px" align="left" style="background-color:#D0D0D0";>Name  </th> ';
 echo '          <td width="765px" align="left" style="background-color:#D0D0D0";>Status  </th>';
 echo '		</tr> ';
-            $query2 = "select p.name, p.status from projects p, user_project up, users u where p.id=up.projectid and up.userId=u.id and u.name='$user';";
+            $query2 = "select p.name, p.status, p.id from projects p, user_project up, users u where p.id=up.projectid and up.userId=u.id and u.name='$user';";
             $result2 = mysqli_query($connection, $query2);
             while($obj=mysqli_fetch_object($result2))
             {
                 $name = $obj->name; 
                 $status = $obj->status;
-echo '	        <tr onclick="window.document.location=""> ';        
-echo '              <a href="#"><td>'.$name.'</td>';
-echo '              <td>'.$status.'</td></a>';
+                $p_id = $obj->id;
+echo '	        <tr id='.$p_id.'"> ';        
+echo '              <td><a href="editProject1.php?projId='.$p_id.'">'.$name.'</a></td>';
+echo '              <td><a href="editProject1.php?projId='.$p_id.'">'.$status.'</a></td>';
 echo '		</tr> ';
             }
 echo '		  </tbody> ';

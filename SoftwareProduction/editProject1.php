@@ -9,11 +9,10 @@
 include('db_connect.php');  
 include('editProject1.html');
 session_start();
-$_SESSION['currentProjectID'] = 1;
+$id= $_GET['projId'];
+$_SESSION['currentProjectID'] = $id;
 
-$_SESSION['current_user'] = "Juan Wang";
-
-$id = $_SESSION['currentProjectID'];
+//$_SESSION['current_user'] = "Juan Wang";
 
 $query = "select name, status, description, startDate, dueDate from projects where id = '$id'";
 $res_opt = mysqli_query($connection, $query);
