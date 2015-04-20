@@ -29,6 +29,9 @@ echo '	  <form class="searchForm" method="POST" ACTION="topsearch.php">';
 echo '	    <input type="text"  name="search1">'; 
 echo '	    <input type="submit" value="Search" name="topsearch">'; 
 echo '	  </form> '; 
+echo '	  <form class="searchForm" ACTION="detailsearch.php">
+            <input type="submit" value="Advanced Search" name="detailsearch">
+          </form>'; 
         
 echo '    <div class="topButtons">'; 
 echo '	  <button id="settingsButton">Settings</button>'; 
