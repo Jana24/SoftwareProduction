@@ -1,6 +1,6 @@
 <style type="text/css">
     .selectedTag{
-        background: #eee;
+        background: #bebebe;
         font-weight:bold;
     }
  </style>
@@ -67,7 +67,7 @@ echo '      padding:6px;';
 echo '      } ';
 echo '      tr:hover { 
                 cursor: pointer;
-                background: #eee; 
+                background: #d6d6d6; 
              }
              td a { 
                 display: block; 
