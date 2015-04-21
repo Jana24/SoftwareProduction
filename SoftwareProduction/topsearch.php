@@ -3,6 +3,7 @@
 /* 
  *  Created on : 21-Mar-2015, 19:10:59
     Author     : Juan Wang 13008700
+    top buttons of every common pages including basic search buttons
  */
 
 // include login information
@@ -57,7 +58,7 @@ echo "   <th>id</th>";
 echo "   <th>name</th>";
 echo "	 <th>status</th>";
 echo "	 <th>description</th>";
-echo "	 <th>managerId</th>";
+echo "	 <th>manager</th>";
 echo "	 <th>budget</th>";
 echo "	 <th>creationDate</th>";
 echo "	 <th>startDate</th>";
@@ -76,17 +77,23 @@ $query1 = "select * from projects where name like '%$text%' or description like 
         $name = $row["name"];	
         $status = $row["status"];	
         $description = $row["description"];
-	$managerId = $row["managerId"];
+        $managerId = $row["managerId"];
+        $querymanager="select distinct u.name from users u, projects p where u.id=$managerId ;";
+        $resultmanager=mysqli_query($connection,$querymanager);
+       
 	$budget = $row["budget"];
         $creationDate = $row["creationDate"];
         $startDate = $row["startDate"];
         $dueDate = $row["dueDate"];
+        while($row = mysqli_fetch_assoc($resultmanager)){
+            $manager=$row["name"];
+        }
 	echo "<tr>";	
         echo "<td>$id</td>";	
         echo "<td>$name</td>";	
         echo "<td>$status</td>";
         echo "<td>$description</td>";	
-        echo "<td>$managerId</td>";	
+        echo "<td>$manager</td>";	
         echo "<td>$budget</td>";
         echo "<td>$creationDate</td>";        
         echo "<td>$startDate</td>";
