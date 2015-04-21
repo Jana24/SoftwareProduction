@@ -12,8 +12,12 @@
 <?php
 
 /* 
- *  Created on : 21-Mar-2015, 19:10:59
-    Author     : Juan Wang 13008700
+ *  Created on : 23-Mar-2015, 19:10:59
+    Author     : Daniel Mckean
+    Description:
+        - display the projects and activities from the user that is logged in
+        - from this page it is possible to edit, delete and create a project
+ 
  */
 
 // include top header and database connection
@@ -22,10 +26,7 @@ include 'topsearch.php';
   //Now create query related to main page
 session_start();
 
-//TODO: delete folowing line
-//$_SESSION['current_user'] = "Juan Wang";
 $user = $_SESSION['current_user'];
-
 
 
 
@@ -98,6 +99,7 @@ echo '	        <tr> ';
 echo '          <td width="200px" align="left" style="background-color:#99CCFF; padding:6px; font-weight:bold";>Name  </th> ';
 echo '          <td width="750px" align="left" style="background-color:#99CCFF; padding:6px; font-weight:bold";>Status  </th>';
 echo '		</tr> ';
+            //get everything from the projects that the user is involved in
             $query2 = "select p.name, p.status, p.id from projects p, user_project up, users u where p.id=up.projectid and up.userId=u.id and u.name='$user';";
             $result2 = mysqli_query($connection, $query2);
             while($obj=mysqli_fetch_object($result2))
@@ -119,8 +121,8 @@ echo '		<br> ';
 echo '	    <div class="bottomButtonsMain"> ';
 echo '        <button id="create" onclick=actionProject(2)>Create</button>';
 echo '	      <button id="deleteView" onclick="actionProject(1)">Delete  </button> ';
-echo '	      <button id="projectsView" onclick="view()">View  </button> ';
-echo '	      <button id="editsView" onclick="actionProject(3)">Edits  </button> ';
+echo '	      <button id="projectsView" onclick="view()">View</button> ';
+echo '	      <button id="editsView" onclick="actionProject(3)">Edit</button> ';
 echo '	    </div> ';
 echo '	  </div> ';
 	  
@@ -186,6 +188,7 @@ echo ' </html>  ';
 ?> 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
+    //toggle for the clicked row
    function toggleColor(id){
         if ($('#'+id).hasClass('selectedTag')) {
             $('#'+id).removeClass('selectedTag').addClass('deselectedTag');
@@ -198,6 +201,7 @@ echo ' </html>  ';
         }
        
    }
+   //actions for the buttons edit, create and delete
    function actionProject(token){
        var id = $('#hiddenId').val();
        if(token==3){

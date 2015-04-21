@@ -4,7 +4,8 @@
  *  Created on : 12-Mar-2015, 10:14:00
     Author     : Jana Willmann 14075531
     Description: 
-        - get all users from database to 
+        - get all users from database and they role
+        - go to update_project_user.php when finished pushing it into database
 
 */
 include('db_connect.php');

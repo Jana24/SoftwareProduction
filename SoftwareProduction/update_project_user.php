@@ -4,7 +4,8 @@
  *  Created on : 19-Apr-2015, 17:34:00
     Author     : Jana Willmann 14075531
     Description: 
-        - get the assigned roles for each user
+        - get the assigned roles for each user from the current form and update or delete them in database
+        - go to main.php if it´ ok
 */
 include('db_connect.php');
 session_start();
