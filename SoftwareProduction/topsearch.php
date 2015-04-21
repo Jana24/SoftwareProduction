@@ -109,7 +109,7 @@ echo "   <th>type</th>";
 echo "   <th>name</th>";
 echo "	 <th>status</th>";
 echo "	 <th>projectId</th>";
-echo "	 <th>assigneeId</th>";
+echo "	 <th>assignee</th>";
 echo "	 <th>description</th>";
 echo "	 <th>expectedHours</th>";
 echo "	 <th>actualHours</th>";
@@ -133,13 +133,18 @@ echo "  </tr>  ";
 	$expectedHours = $row["expectedHours"];
 	$actualHours = $row["actualHours"];
         $creationDate = $row["creationDate"];
+        $queryassignee="select distinct u.name from users u, activities a where u.id=$assigneeId ;";
+                        $resultassignee=mysqli_query($connection,$queryassignee);
+                            while($row = mysqli_fetch_assoc($resultassignee)){
+                                $assignee=$row["name"];
+                                }
         echo "<tr>";	
         echo "<td>$id</td>";
         echo "<td>$type</td>";
         echo "<td>$name</td>";	
         echo "<td>$status</td>";
         echo "<td>$projectId</td>";	
-        echo "<td>$assigneeId</td>";
+        echo "<td>$assignee</td>";
         echo "<td>$description</td>";	
         echo "<td>$expectedHours</td>";
         echo "<td>$actualHours</td>";        
