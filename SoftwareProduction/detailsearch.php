@@ -61,6 +61,7 @@ if (!empty($_POST['detailsearch'])) {
                         $creationDate = $row["creationDate"];
                         $startDate = $row["startDate"];
                         $dueDate = $row["dueDate"];
+                        //display names for managers
                         $querymanager="select distinct u.name from users u, projects p where u.id=$managerId ;";
                         $resultmanager=mysqli_query($connection,$querymanager);
                             while($row = mysqli_fetch_assoc($resultmanager)){
@@ -113,6 +114,7 @@ if (!empty($_POST['detailsearch'])) {
                     $expectedHours = $row["expectedHours"];
                     $actualHours = $row["actualHours"];
                     $creationDate = $row["creationDate"];
+                    //display names for assignees
                     $queryassignee="select distinct u.name from users u, activities a where u.id=$assigneeId ;";
                         $resultassignee=mysqli_query($connection,$queryassignee);
                             while($row = mysqli_fetch_assoc($resultassignee)){
