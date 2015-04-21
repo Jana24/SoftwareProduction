@@ -3,9 +3,11 @@
 /*
  *  Created on : 12-Mar-2015, 10:14:00
     Author     : Jana Willmann 14075531
+    Description: 
+        - get all users from database to 
+
 */
 include('db_connect.php');
-include('topsearch.php');
 include('editProject2.html');
 
 session_start();

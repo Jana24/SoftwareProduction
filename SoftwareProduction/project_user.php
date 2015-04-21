@@ -3,6 +3,8 @@
 /*
  *  Created on : 01-Apr-2015, 17:34:00
     Author     : Jana Willmann 14075531
+    Description:
+        - insert the users to the user_project datatable
 */
 include('db_connect.php');
 session_start();
@@ -19,7 +21,7 @@ if(isset($_POST))
 {
     foreach($_POST as $inputName => $inputValue)
     {
-        
+        //get the role
         if($inputValue != "None"){
             //Found a user that has a role get the ID
             $user_id = $inputName;
@@ -34,7 +36,7 @@ if(isset($_POST))
                 $role = "tester";
             }
             
-            
+            //insert to database
             $query = "INSERT INTO user_project(";
             $query .= "userId, projectId, role";
             $query .= ") VALUES (";

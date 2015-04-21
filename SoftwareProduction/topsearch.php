@@ -28,7 +28,7 @@ echo '  </script>';
 echo '  </head>'; 
 echo '  <body>'; 
 echo '    <div id ="main">'; 
-echo '	  <button id="homeButton">Home</button>'; 
+echo '	  <button id="homeButton" ><a href="main.php" style="text-decoration:none; color:black; ">Home</a></button>'; 
 echo '	  <form class="searchForm" method="POST" ACTION="topsearch.php">'; 
 echo '	    <input type="text"  name="search1">'; 
 echo '	    <input type="submit" value="Search" name="topsearch">'; 

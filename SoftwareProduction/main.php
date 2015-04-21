@@ -3,6 +3,10 @@
         background: #bebebe;
         font-weight:bold;
     }
+    .deselectedTag{
+        background: #ffffff;
+        font-weight:normal;
+    }
  </style>
 
 <?php
@@ -183,8 +187,16 @@ echo ' </html>  ';
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
    function toggleColor(id){
-       $('#'+id).addClass('selectedTag');
-       $('#hiddenId').val(id);
+        if ($('#'+id).hasClass('selectedTag')) {
+            $('#'+id).removeClass('selectedTag').addClass('deselectedTag');
+            $('#hiddenId').val(0);  
+        }
+        else {
+            $('#'+$('#hiddenId').val()).removeClass('selectedTag').addClass('deselectedTag');
+            $('#hiddenId').val(id);  
+            $('#'+id).removeClass('deselectedTag').addClass('selectedTag');
+        }
+       
    }
    function actionProject(token){
        var id = $('#hiddenId').val();

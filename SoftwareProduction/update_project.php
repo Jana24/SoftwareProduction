@@ -4,6 +4,10 @@
 /*
  *  Created on : 19-April-2015, 17:14:00
     Author     : Jana Willmann 14075531
+    Description:
+        - get all the data from the fields
+        - update them to database
+        - go to update_users_to_project.php when success
 */
 //session_start();
 
@@ -49,7 +53,7 @@ if($result){
 else{
     die("Database query failed. " .mysql_error($connection));
     echo "Something went wrong!";
-    header("Location: editProject1.html"); 
+    header("Location: update_project.php"); 
 }
 
 ?> 

@@ -3,6 +3,8 @@
 /*
  *  Created on : 19-Apr-2015, 17:34:00
     Author     : Jana Willmann 14075531
+    Description: 
+        - get the assigned roles for each user
 */
 include('db_connect.php');
 session_start();

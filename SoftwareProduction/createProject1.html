@@ -2,10 +2,16 @@
 <!--
  *  Created on : 13-April-2015, 16:30:00
     Author     : Jana Willmann 14075531
+
+    Description: 
+    - create a new project to the database
+    - user inserts name, description  and dates to get to the insert_project.php, which inserts the data 
+      into the database
+
 -->
 <html>
     <head>
-        <title>Create Project1</title>
+        <title>Create Project</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -17,41 +23,6 @@
             $( "#startDate" ).datepicker({ dateFormat: 'dd/mm/yy' }).val();
             $( "#endDate" ).datepicker({ dateFormat: 'dd/mm/yy' }).val();
         });
-        </script>
-        
-        <script type="text/javascript">
-            
-            $(document).ready(function(){
-               $("input#submit").click(function(){
-                    var proj_name = $("input#myName").val();
-                    var description = $("textarea#myDescription").val();
-                    var status = $("select#myStatus").val();
-                    var proj_start_date = $("date#startDate").val();
-                    var proj_end_date = $("date#endDate").val();
-                    
-                    if(proj_name == "" || description == "" || proj_start_date == "dd/mm/yyyy" || proj_end_date == "dd/mm/yyyy"){   
-                        alert("Please fill out all fields!");
-                    }
-                    //TODO check dates; start date has to be before end date, all dates after todays day
-                    else{
-                        alert("Perfect!" + proj_name + description + status);
-                        $.ajax({
-                            url: 'insert_project.php',
-                            type: 'post',
-                            data: { 
-                                name: proj_name,
-                                descr: description,
-                                status: status,
-                                s_date: proj_start_date,
-                                e_date: proj_end_date,},
-                            success: { alert("Yeah!"); }
-                        });
-                    }     
-                    
-               } );
-                
-            });
-            
         </script>
         
         
