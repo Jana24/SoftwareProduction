@@ -4,7 +4,8 @@
   * Created on : 19-April-2015, 12:14:00
     Author     : Jana Willmann 14075531
     Description:
-        - 
+        - get the data from the page before and put it into the fields
+        - go to update_project.php page
  */
 
 include('db_connect.php');  

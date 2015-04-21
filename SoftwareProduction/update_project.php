@@ -14,6 +14,7 @@
 // include login information
 include('db_connect.php');  
 
+//get data from fields
 $projName  = $_POST['proj_name'];
 $description = $_POST['proj_description'];
 $status = $_POST['status'];
@@ -23,7 +24,7 @@ session_start();
 //$query = "SELECT * FROM projects";
 $id = $_SESSION['currentProjectID'];
 
-
+//format the data
 $dateFormated = explode('/', $start_date);
 $sdate = $dateFormated[2].'-'.$dateFormated[1].'-'.$dateFormated[0];
 
@@ -39,6 +40,7 @@ if($status == "not_started"){
     $database_status = "completed";
 }
 
+//update the project
 $query = "UPDATE projects SET ";
 $query .= "name = '$projName', status = '$database_status', ";
 $query .= "description = '$description', startDate ='$sdate', dueDate ='$edate' ";
