@@ -3,6 +3,7 @@
 /* 
  *  Created on : 21-Mar-2015, 19:10:59
     Author     : Juan Wang 13008700
+ *  search page with a drop down list to search specifically for projects, activities, and users.
  */
 
   include 'topsearch.php';
@@ -37,7 +38,7 @@ if (!empty($_POST['detailsearch'])) {
                 echo "   <th>name</th>";
                 echo "	 <th>status</th>";
                 echo "	 <th>description</th>";
-                echo "	 <th>managerId</th>";
+                echo "	 <th>manager</th>";
                 echo "	 <th>budget</th>";
                 echo "	 <th>creationDate</th>";
                 echo "	 <th>startDate</th>";
@@ -60,12 +61,17 @@ if (!empty($_POST['detailsearch'])) {
                         $creationDate = $row["creationDate"];
                         $startDate = $row["startDate"];
                         $dueDate = $row["dueDate"];
+                        $querymanager="select distinct u.name from users u, projects p where u.id=$managerId ;";
+                        $resultmanager=mysqli_query($connection,$querymanager);
+                            while($row = mysqli_fetch_assoc($resultmanager)){
+                                $manager=$row["name"];
+                                }
                         echo "<tr>";	
                         echo "<td>$id</td>";	
                         echo "<td>$name</td>";	
                         echo "<td>$status</td>";
                         echo "<td>$description</td>";	
-                        echo "<td>$managerId</td>";	
+                        echo "<td>$manager</td>";	
                         echo "<td>$budget</td>";
                         echo "<td>$creationDate</td>";   
                         echo "<td>$startDate</td>";
@@ -83,7 +89,7 @@ if (!empty($_POST['detailsearch'])) {
                 echo "   <th>name</th>";
                 echo "	 <th>status</th>";
                 echo "	 <th>projectId</th>";
-                echo "	 <th>assigneeId</th>";
+                echo "	 <th>assignee</th>";
                 echo "	 <th>description</th>";
                 echo "	 <th>expectedHours</th>";
                 echo "	 <th>actualHours</th>";
@@ -107,13 +113,18 @@ if (!empty($_POST['detailsearch'])) {
                     $expectedHours = $row["expectedHours"];
                     $actualHours = $row["actualHours"];
                     $creationDate = $row["creationDate"];
+                    $queryassignee="select distinct u.name from users u, activities a where u.id=$assigneeId ;";
+                        $resultassignee=mysqli_query($connection,$queryassignee);
+                            while($row = mysqli_fetch_assoc($resultassignee)){
+                                $assignee=$row["name"];
+                                }
                     echo "<tr>";	
                     echo "<td>$id</td>";
                     echo "<td>$type</td>";
                     echo "<td>$name</td>";	
                     echo "<td>$status</td>";
                     echo "<td>$projectId</td>";	
-                    echo "<td>$assigneeId</td>";
+                    echo "<td>$assignee</td>";
                     echo "<td>$description</td>";	
                     echo "<td>$expectedHours</td>";
                     echo "<td>$actualHours</td>";      
