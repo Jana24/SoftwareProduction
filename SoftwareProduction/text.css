@@ -1,0 +1,161 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25-Mar-2015, 18:42:49
+    Author     : danielmckean
+    Description:
+        - generic style page for HTML pages
+*/
+    body {
+    font-family: arial, "Comic Sans MS", calibri, sans-serif;
+    }
+   
+    #main {
+    width:1200px;
+    height:800px;
+    }	
+   
+    #searchForm {
+    margin-left:400px;
+    }
+    
+    #homeButton{
+     margin-right:350px;
+    }
+    
+    .searchForm{
+ 
+    }
+    
+    .advancedSearchForm{
+     
+    }
+   
+    #involvedPersonsCP2{
+    margin: 100px 200px;  
+    }
+    
+    #user_in_project{
+    float:left;	
+    }	
+	
+    #listbox2CP2{
+    float:right;
+    margin-right:120px;
+    }	
+	
+    .bottomButtons{
+    float:right;
+    margin-right:60px;
+    }
+	
+    .topButtons{
+    float:right;
+    }
+    #usersRolesCP2{
+    margin-left: 200px;
+	float:left;
+    }
+    	  
+    #myProjectsMain {
+    border: solid 1px #d6d6d6;
+    border-height:600px;
+    border-bottom:none;
+    width:1100px; 
+    height:300px;
+    margin-top:50px; 
+    margin-left: 60px;
+	//myProjects is a rectangle containing the first table, the heading 'My Projects' and the buttons at the bottom
+    }
+   
+   
+    .bottomButtonsMain{
+    float:right;
+    margin-right:60px;
+    position:static;
+    padding-bottom:0;
+    //There are two tables on this main page.  The class bottomButtons contains the buttons at the bottom of both tables 
+    }
+   
+    #myActivitiesMain {
+    border: solid 1px #d6d6d6;
+    border-height:800px;
+    width:1100px;
+    height:300px;
+    margin-left: 60px;
+	//myActivities is essentially a rectangle holding the bottom table of the page, the heading My Activities and the bottom buttons
+    }  
+
+    #projectsTableMain thead {
+    display: inline-block;
+    width: 100%;
+    }
+	
+    #projectsTableMain tbody {
+    height: 180px;
+    display: inline-block;
+    width: 100%;
+    overflow: scroll; //scroll is added to enable user to create as many projects as possible without extending size of My Projects table
+	}
+
+    #containerAdminRoles {
+    border: solid 1px black;
+    width:1100px;
+    height:660px;
+    margin-left: 50px;
+    }  
+    
+	
+    #buttonsAR{
+    margin-left:90px;
+    //this contains the + and - buttons below the listbox
+    }	
+
+    #allUsersAdminRoles{
+    margin: 0 32px;
+    float:left;
+//this contains the listbox on the left of the page
+    }
+    
+    #containerEditProject1 {
+    width:1000px;
+    height:660px;
+    margin-left: 100px;
+    margin-top:150px;
+    font-weight:bold;
+    }   
+    
+    #containerAdminUser {
+    border: solid 1px black;
+    width:1100px;
+    height:660px;
+    margin-left: 50px;
+    }   
+
+	#allUsersAdminUser{
+	margin: 0 32px;
+	float:left;
+	//There is a listbox on the left of the page.  It is contained in this div
+	}
+	
+	#textFieldsAdminUser{
+	border:1px solid black;
+	height:400px;	
+	width:500px;
+	float:left;	
+	padding-top:50px;
+	//The rectangle in the middle of the page holding Name, Email, Location, Phone fields is contained in this div
+	}
+	
+	#formsAU{
+	padding-left:100px;
+	}
+	
+	#buttonsAU{
+	margin-left:90px;
+	}
+        
+        
